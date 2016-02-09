@@ -6,36 +6,53 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
         <script src="msg.js"></script>
         <link href="msg.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         </head>
         <body>
-            <h1>LLamasoft Message Exercise
-            </h1>
+            <div id='content'>
+                <div class='message-container'>
+                    <div class='message-section'>
+                    </div>
+                </div>
+                <h1>LLamasoft Message Exercise
+                </h1>
 
-            <div>
+                <div class='body-section'>
 
-                <p>
-                Implement a messaging system to replace the random alert boxes that come up. The messaging system
-                should meet the following criteria
-                <ul>
-                <li>Messages should appear near the top of the page</li>
-                <li>Messages should fade out after 3 seconds</li>
-                <li>If a new message appears before the previous message fades out, it should appear below the most recent visible message.</li>
-                <li>Messages should have a close or delete box to dismiss the message before the fade out</li>
-                </ul>
-                </p>
-                
-                <p>
-                In addition to the above features, implement other updates you think might be helpful. E.g. Add an indicator
-                to let the user new that the messages are running in addition to the text change on the button, update the
-                layout to make the page more readable, etc. Feel free to use
-                any third party libraries you find helpful. jQuery and underscore are already referenced.
-                </p>
-            </div>
+                    <p>
+                    Implement a messaging system to replace the random alert boxes that come up. The messaging system
+                    should meet the following criteria
+                    <ul>
+                    <li>Messages should appear near the top of the page</li>
+                    <li>Messages should fade out after 3 seconds</li>
+                    <li>If a new message appears before the previous message fades out, it should appear below the most recent visible message.</li>
+                    <li>Messages should have a close or delete box to dismiss the message before the fade out</li>
+                    </ul>
+                    </p>
+                    
+                    <p>
+                    In addition to the above features, implement other updates you think might be helpful. E.g. Add an indicator
+                    to let the user new that the messages are running in addition to the text change on the button, update the
+                    layout to make the page more readable, etc. Feel free to use
+                    any third party libraries you find helpful. jQuery and underscore are already referenced.
+                    </p>
+                </div>
 
-            <div>
-            <button type="button" id="msgButton">Start Messages</button>
-            </div>
+                <div class='control-section'>
+                    <button type="button" id="msgButton" class="btn btn-success">Start Messages</button>
+                    <button type="button" id="clearMsgButton" class="btn btn-default">Clear All Messages</button>
+                    Message Duration:
+                    <select class="form-control" id="ttlSelect">
+                        <option>1</option>
+                        <option>2</option>
+                        <option selected>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>10</option>
+                    </select>
+                </div>
             
+            </div>
             <div class="footer">
                 <span>&copy; LLamasoft 2016</span>
             </div>
