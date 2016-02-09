@@ -1,19 +1,44 @@
+#content {
+	padding-left: 10px;
+	position: relative;
+}
+
+#ttlSelect {
+	display: inline-block;
+	width: 100px;
+}
+
+.message-container {
+	position: absolute;
+	width: 200px;
+	right: 20px;
+}
+
+.message-section {
+	position: fixed;
+	width: 200px;
+}
+
+.message-box {
+	position: relative;
+}
+
+.message-box button {
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	font-size: 14px;
+}
+
+.control-section {
+	padding: 10px;
+	background-color: #ADD8E6;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
     text-align: center;
     width: 99%;
     height: 24px;
-}
-
-.message-section {
-	top: 5;
-	right: 5;
-	z-index: 10;
-	width: 200px;
-	float: right;
-}
-
-.message-box {
-
 }

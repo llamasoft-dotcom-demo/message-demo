@@ -17,9 +17,24 @@ messageSystem = {
       var that = this;
 
       // in addition to creating the html need to also manage the lifecycle..so set that up here as well
-      var msgID = 'message-' + this.simpleCounter.toString();
-      var html = "<div id='" + msgID + "' class='message-box alert alert-danger'>" + msg + "</div>";
+      
+      var closeElement = document.createElement('button');
+      closeElement.className = 'close';
+      closeElement.innerHTML = 'X';
 
+      // attached a click handler to the close button...real simple, just remove the parent div
+      $(closeElement).click(function(){
+        $(this).parent().remove();
+      });
+
+      var msgID = 'message-' + this.simpleCounter.toString();
+      var messageElement = document.createElement('div');
+      messageElement.id = msgID;
+      messageElement.className = 'message-box alert alert-danger';
+      messageElement.innerHTML = msg;
+
+      messageElement.appendChild(closeElement);
+      
       // increment so the next time its ready to go
       this.simpleCounter = this.simpleCounter + 1;
 
@@ -28,16 +43,19 @@ messageSystem = {
         that.destroyElement(msgID);
       }, this.messageTTL);
 
-      return html;
+      return messageElement;
     },
 
     destroyElement: function(msgID) {
-      // remove from dom what the counter function tells us to
-      $('#' + msgID).remove();
+      // remove from dom what the counter function tells us to after fading out
+      var element = $('#' + msgID);
+      element.fadeOut(1000, function(){
+        element.remove();
+      });
     },
 
     // maybe the user wants to clear all the current messages
-    destoryElementAll: function() {
+    destroyElementAll: function() {
       $('.message-box').remove();
     },
 
@@ -73,16 +91,25 @@ function loop() {
 
 
 $(function() {
-   $('#msgButton').click(function() {
-       var btn = $(this),
-      btnTxt = btn.text();
-       if (btnTxt === 'Start Messages') {
-           btn.text('Stop Messages');
-           loopHandle = setTimeout(loop, 500);
-       } else {
-           btn.text('Start Messages');
-           clearTimeout(loopHandle);
-           loopHandle = null;
-       }
-   } );
+  // onload event setup
+  $('#msgButton').click(function() {
+    var btn = $(this),
+    btnTxt = btn.text();
+     if (btnTxt === 'Start Messages') {
+         btn.text('Stop Messages');
+         loopHandle = setTimeout(loop, 500);
+     } else {
+         btn.text('Start Messages');
+         clearTimeout(loopHandle);
+         loopHandle = null;
+     }
+   });
+
+  $('#clearMsgButton').click(function(){
+    messageSystem.destroyElementAll();
+  });
+
+  $('#ttlSelect').change(function(){
+    messageSystem.setTTL($(this).val());
+  });
 });

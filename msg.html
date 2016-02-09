@@ -10,7 +10,10 @@
         </head>
         <body>
             <div id='content'>
-                <div class='message-section'></div>
+                <div class='message-container'>
+                    <div class='message-section'>
+                    </div>
+                </div>
                 <h1>LLamasoft Message Exercise
                 </h1>
 
@@ -35,13 +38,23 @@
                     </p>
                 </div>
 
-                <div>
-                <button type="button" id="msgButton">Start Messages</button>
+                <div class='control-section'>
+                    <button type="button" id="msgButton">Start Messages</button>
+                    <button type="button" id="clearMsgButton">Clear All Messages</button>
+                    <label for="ttlSelect">Message Duration:</label>
+                    <select class="form-control" id="ttlSelect">
+                        <option>1</option>
+                        <option>2</option>
+                        <option selected>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>10</option>
+                    </select>
                 </div>
-                
-                <div class="footer">
-                    <span>&copy; LLamasoft 2016</span>
-                </div>
+            
+            </div>
+            <div class="footer">
+                <span>&copy; LLamasoft 2016</span>
             </div>
         </body>
     </html>
