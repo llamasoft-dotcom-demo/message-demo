@@ -4,8 +4,47 @@ var loopHandle = null;
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
 messageSystem = {
+    simpleCounter: 0,
+    messageTTL: 3000,
+
     showMessage: function(msg) {
-        alert(msg);
+        //alert(msg);
+        var msgHtml = this.createElement(msg);
+        $('.message-section').append(msgHtml);
+    },
+
+    createElement: function(msg) {
+      var that = this;
+
+      // in addition to creating the html need to also manage the lifecycle..so set that up here as well
+      var msgID = 'message-' + this.simpleCounter.toString();
+      var html = "<div id='" + msgID + "' class='message-box alert alert-danger'>" + msg + "</div>";
+
+      // increment so the next time its ready to go
+      this.simpleCounter = this.simpleCounter + 1;
+
+      // messages only live for their TTL, after which we need to destroy them
+      setTimeout(function(){
+        that.destroyElement(msgID);
+      }, this.messageTTL);
+
+      return html;
+    },
+
+    destroyElement: function(msgID) {
+      // remove from dom what the counter function tells us to
+      $('#' + msgID).remove();
+    },
+
+    // maybe the user wants to clear all the current messages
+    destoryElementAll: function() {
+      $('.message-box').remove();
+    },
+
+    // allow a user to change the TTL (in seconds) via an html form element
+    // only effects future messages not ones that already exist
+    setTTL: function(ttl) {
+      this.messageTTL = parseInt(ttl) * 1000;
     }
 }
 

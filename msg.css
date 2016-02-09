@@ -5,3 +5,15 @@
     width: 99%;
     height: 24px;
 }
+
+.message-section {
+	top: 5;
+	right: 5;
+	z-index: 10;
+	width: 200px;
+	float: right;
+}
+
+.message-box {
+
+}
