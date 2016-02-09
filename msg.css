@@ -5,7 +5,7 @@
 
 #ttlSelect {
 	display: inline-block;
-	width: 100px;
+	width: 50px;
 }
 
 .message-container {
@@ -17,6 +17,10 @@
 .message-section {
 	position: fixed;
 	width: 200px;
+}
+
+.body-section {
+	width: calc(100% - 220px);
 }
 
 .message-box {
@@ -32,7 +36,8 @@
 
 .control-section {
 	padding: 10px;
-	background-color: #ADD8E6;
+	background-color: #ababab;
+	width: 50%;
 }
 
 .footer {

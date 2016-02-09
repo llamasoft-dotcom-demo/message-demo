@@ -98,10 +98,12 @@ $(function() {
      if (btnTxt === 'Start Messages') {
          btn.text('Stop Messages');
          loopHandle = setTimeout(loop, 500);
+         btn.removeClass('btn-success').addClass('btn-danger');
      } else {
          btn.text('Start Messages');
          clearTimeout(loopHandle);
          loopHandle = null;
+         btn.removeClass('btn-danger').addClass('btn-success');
      }
    });
 
