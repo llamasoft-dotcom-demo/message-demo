@@ -5,3 +5,47 @@
     width: 99%;
     height: 24px;
 }
+
+#running{
+    padding-left: 2em;
+    color: #089DE3;
+}
+
+.jumbotron{
+    background-color: #EEEEEE;
+    padding: 15px;
+    font-size: 0.8em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.alert-dave {
+	background-color: #4B4B4B;
+	border-color: rgba(149, 149, 149, 0.3);
+	border-radius: 3px;
+	color: #CCCCCC;
+	padding: 10px;
+}
+
+.alert-dave > [data-notify="title"] {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+.alert-dave > [data-notify="message"] {
+	font-size: 1em;
+}
+
+button{
+    background-color: #089DE3;
+    border-color: #089DE3;
+    color: #FFFFFF;
+}
+
+.alert-dave > button {
+	color: #FFFFFF;
+}
+
+.alert-dave > button: hover {
+	color: #089DE3;
+}
