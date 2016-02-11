@@ -4,9 +4,38 @@ var loopHandle = null;
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
 messageSystem = {
+    messageCount: 0,
+    clickCount: 0,
     showMessage: function(msg) {
-        alert(msg);
+    	messageSystem.messageCount++;
+        var notify = $.notify(
+            {message: msg, title: "Message " + messageSystem.messageCount}, 
+            {
+                delay: 3000,
+                type: "dave",
+                offset: {x: 50, y: 140},
+                template: 
+    '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+        '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+        '<span data-notify="title">{1}</span>' +
+        '<span data-notify="message">{2}</span>' +
+    '</div>'
+            });
+        
+        var jqRunning = $('#running');
+        if(jqRunning.length == 0){
+        	$('<span id="running">You see those messages too, right?</span>').insertAfter("#msgButton");
+        	$('#msgButton').click(messageSystem.changeMessageOnButtonClick);
+        	return;
+        }
+    },
+    changeMessageOnButtonClick: function(sender){
+    	messageSystem.clickCount++;
+    	var jqRunning = $('#running');
+    	var runningText = (messageSystem.clickCount % 2) == 0 ? 'There they are again!?!' : 'I think they stopped.';
+    	jqRunning.text(runningText); 
     }
+    
 }
 
 
