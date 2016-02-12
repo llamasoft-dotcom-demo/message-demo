@@ -5,3 +5,90 @@
     width: 99%;
     height: 24px;
 }
+
+#message-list-control {
+	margin: 0px;
+	width: 800px;
+	border-bottom: 1px solid gainsboro;
+}
+
+#message-list-control > div {
+	padding: 5px 10px 5px 10px;
+	margin: 0px;
+	display: inline-block;
+}
+
+#message-list-count {
+	float: left;
+}
+
+#message-list-toggle {
+	width: 16px;
+	color: white;
+	text-align: center;
+	background-color: gainsboro;
+	font-weight: bold;
+	font-family: impact;
+	float: right;	
+}
+
+#message-list-toggle:hover {
+	background-color: gray;
+}
+
+#message-list-toggle:active {
+	color: black;
+	background-color: white;
+}
+
+#message-list {
+	height: 120px;
+	border-bottom: 1px solid gainsboro;
+	overflow: hidden;
+	padding: 0px;
+	margin: 0px;
+	width: 800px;	
+}
+
+#message-list > li > div {
+	list-style-type:none;
+	padding: 5px 10px 5px 10px;
+}
+
+#message-list > li > div.msg-close {
+	color: white;
+	font-family: verdana;
+	font-weight: bold;
+	background-color: gainsboro;
+	display: inline-block;
+	cursor: default;
+	float: right;
+	padding: 5px 10px 4px 10px;
+	width: 16px;
+	text-align: center;
+}
+
+#message-list > li > div.msg-close:hover {
+	background-color: gray;
+}
+
+#message-list > li > div.msg-close:active {
+	color: black;
+	background-color: white;
+}
+
+.clearfix:after { 
+	content: " ";
+	display: block; 
+	height: 0; 
+	clear: both;
+}
+
+.noselect {
+	/* Disables text cursor, as well as highlighting of text in all major browsers */
+	cursor: default;
+	-moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
