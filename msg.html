@@ -4,40 +4,62 @@
         <title>Message Sample</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+        <script src="ext/knockout-3.4.0.js"></script>
         <script src="msg.js"></script>
-        <link href="msg.css" rel="stylesheet">
+        <script src="ext/jquery-ui.js"></script>
+        <script src="msgMonitor.js"></script>
+        <script src="Models/Message.js"></script>
+        <script src="ViewModels/MessagesViewModel.js"></script>
+        <link href="msg.css" rel="stylesheet" />
+        <link href="ext/jquery-ui.css" rel="stylesheet" />
+        
+        <script>
+            $(function () {
+                $("#accordion").accordion;
+            })
+        </script>
         </head>
-        <body>
-            <h1>LLamasoft Message Exercise
-            </h1>
+        <body class="siteMain">
+            <div class="displayZone">
+                <div class="displayContent">
 
-            <div>
+                    <h1>
+                        LLamasoft Message Exercise
+                    </h1>
 
-                <p>
-                Implement a messaging system to replace the random alert boxes that come up. The messaging system
-                should meet the following criteria
-                <ul>
-                <li>Messages should appear near the top of the page</li>
-                <li>Messages should fade out after 3 seconds</li>
-                <li>If a new message appears before the previous message fades out, it should appear below the most recent visible message.</li>
-                <li>Messages should have a close or delete box to dismiss the message before the fade out</li>
-                </ul>
-                </p>
-                
-                <p>
-                In addition to the above features, implement other updates you think might be helpful. E.g. Add an indicator
-                to let the user know that the messages are running in addition to the text change on the button, update the
-                layout to make the page more readable, etc. Feel free to use
-                any third party libraries you find helpful. jQuery and underscore are already referenced.
-                </p>
-            </div>
+                    <div>
 
-            <div>
-            <button type="button" id="msgButton">Start Messages</button>
+                        <p>
+                            Implement a messaging system to replace the random alert boxes that come up. The messaging system
+                            should meet the following criteria
+                            <ul>
+                                <li>Messages should appear near the top of the page</li>
+                                <li>Messages should fade out after 3 seconds</li>
+                                <li>If a new message appears before the previous message fades out, it should appear below the most recent visible message.</li>
+                                <li>Messages should have a close or delete box to dismiss the message before the fade out</li>
+                            </ul>
+                        </p>
+
+                        <p>
+                            In addition to the above features, implement other updates you think might be helpful. E.g. Add an indicator
+                            to let the user new that the messages are running in addition to the text change on the button, update the
+                            layout to make the page more readable, etc. Feel free to use
+                            any third party libraries you find helpful. jQuery and underscore are already referenced.
+                        </p>
+                    </div>
+
+                    <div>
+                        <button type="button" id="msgButton">Start Messages</button>
+                    </div>
+                </div>
+                <div class="sideBar">
+                    <div class="messageHeader">
+                            <span id="msgIcon" class="ui-icon ui-icon-alert" style="display:none"></span><span id="msgCounter"></span>
+                            <span class="headerClose ui-icon ui-icon-closethick"></span>
+                    </div>
+                    <div id="accordion"></div>
+                </div>
             </div>
-            
-            <div class="footer">
-                <span>&copy; LLamasoft 2016</span>
-            </div>
+            <footer><span>&copy; LLamasoft 2016</span></footer>
         </body>
     </html>

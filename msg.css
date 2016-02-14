@@ -5,3 +5,46 @@
     width: 99%;
     height: 24px;
 }
+
+.siteMain{
+  display:flex;
+  flex-direction: column;
+  min-height: 95vh;
+}
+
+.displayZone
+{
+  display:flex;
+  flex: 1;
+}
+
+.displayContent
+{
+  flex:1;
+}
+
+.sideBar
+{
+  flex: 0 0 200px;
+  background-color:#f7f3af;
+  display:none;
+  border: 5px solid #eee;
+}
+
+.ui-icon{
+    zoom:1.2;
+}
+
+.headerClose{
+    margin-left: auto;
+}
+
+.messageHeader{
+    height:24px;
+    display:flex;
+    /*flex-flow:row;*/
+}
+
+.msgHeaderIndicator{
+    /*flex: 0;*/
+}

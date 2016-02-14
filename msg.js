@@ -3,6 +3,13 @@ var loopHandle = null;
 // The messageSystem object is where you should do all of your work
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
+
+// [Ryan Peterson notes]
+// 1. Message handling is in ViewModels/MessagesViewModel.js
+// 2. Message data is defined in Models/Message.js
+// 3. Several ViewModel unit tests are added under Test/Tests.html
+// 4. Updated msg.css to support visualization goals
+// 5. Updated msg.html to support visualization goals
 messageSystem = {
     showMessage: function(msg) {
         alert(msg);
