@@ -1,0 +1,54 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:me="clr-namespace:llama_message_csharp"
+        xmlns:TestUserControlUpdate="clr-namespace:MyMessageList;assembly=TestUserControlUpdate" xmlns:MyMessageList="clr-namespace:MyMessageList;assembly=MyMessageList" x:Class="llama_message_csharp.MainWindow"
+        Title="MainWindow" Height="474" Width="994">
+    <Grid Margin="0,0,0,-116">
+        <TextBlock HorizontalAlignment="Left" Margin="33,104,0,0" TextWrapping="Wrap" Text="Llamasoft message example - WPF desktop" VerticalAlignment="Top"
+			FontFamily="Consolas"
+			FontSize="18"
+			FontStyle="Normal"
+			FontWeight="Bold" RenderTransformOrigin="0.482,-0.996"/>
+        <Button x:Name="LLmsgButton" Content="Start Messages" HorizontalAlignment="Left" Margin="42,379,0,0" VerticalAlignment="Top" Width="123" Click="Button_Click" RenderTransformOrigin="0.325,5.65"/>
+
+
+        <MyMessageList:MessageListBox x:Name="myMsgList" HorizontalAlignment="Left" VerticalAlignment="Top" Width="986" Height="79"/>
+        <TextBlock HorizontalAlignment="Left" Margin="52,164,0,0" TextWrapping="Wrap" Text="Implement a messaging system to replace the random alert boxes that come up. The messaging system should meet the following criteria" VerticalAlignment="Top" Width="760" Height="16"/>
+        <BulletDecorator Grid.Column="0" Margin="92,185,0,356" VerticalAlignment="Center"  Height="18">
+            <BulletDecorator.Bullet>
+                <Ellipse Fill="Black" Stroke="Black" StrokeThickness="1" Width="8" Height="8"/>
+            </BulletDecorator.Bullet>
+            <TextBlock HorizontalAlignment="Right" Margin="0,0,10,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="18" Width="871">
+                Messages should appear near the top of the page
+            </TextBlock>
+        </BulletDecorator>
+        <BulletDecorator Grid.Column="0" Margin="92,208,0,333" VerticalAlignment="Center"  Height="18">
+            <BulletDecorator.Bullet>
+                <Ellipse Fill="Black" Stroke="Black" StrokeThickness="1" Width="8" Height="8"/>
+            </BulletDecorator.Bullet>
+            <TextBlock HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="18" Width="881">
+                Messages should fade out after 3 seconds
+            </TextBlock>
+        </BulletDecorator>
+        <BulletDecorator Grid.Column="0" Margin="92,231,0,310" VerticalAlignment="Center"  Height="18">
+            <BulletDecorator.Bullet>
+                <Ellipse Fill="Black" Stroke="Black" StrokeThickness="1" Width="8" Height="8"/>
+            </BulletDecorator.Bullet>
+            <TextBlock HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="18" Width="881">
+                If a new message appears before the previous message fades out, it should appear below the most recent visible message.
+            </TextBlock>
+        </BulletDecorator>
+        <BulletDecorator Grid.Column="0" Margin="92,254,0,287" VerticalAlignment="Center"  Height="18">
+            <BulletDecorator.Bullet>
+                <Ellipse Fill="Black" Stroke="Black" StrokeThickness="1" Width="8" Height="8"/>
+            </BulletDecorator.Bullet>
+            <TextBlock HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="18" Width="881">
+                Messages should have a close or delete box to dismiss the message before the fade out
+            </TextBlock>
+        </BulletDecorator>
+        <TextBlock HorizontalAlignment="Left" Margin="52,277,0,0" TextWrapping="Wrap" Text="In addition to the above features, implement other updates you think might be helpful. E.g. Add an indicator to let the user know that the messages are running in addition to the text change on the button, update the layout to make the page more readable, etc. Feel free to use any third party libraries you find helpful. " VerticalAlignment="Top" Height="97" Width="727"/>
+
+    </Grid>
+
+</Window>
