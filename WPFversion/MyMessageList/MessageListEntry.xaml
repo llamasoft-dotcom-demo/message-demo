@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="MyMessageList.MessageListEntry"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="20.25" Width="953.167">
+    <Grid Margin="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="271*"/>
+            <ColumnDefinition Width="30*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="_textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="899" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="0,2,0,0">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.425"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.743"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="28,0,0,0" VerticalAlignment="Top" Width="67" RenderTransformOrigin="0.2,0.55" Click="Button_Click" Grid.Column="1"/>
+
+    </Grid>
+</UserControl>

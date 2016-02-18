@@ -1,0 +1,28 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "llama message csharp", "llama message csharp\llama message csharp.csproj", "{20EBB769-B856-429C-A0EB-829F861D3463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMessageList", "MyMessageList\MyMessageList.csproj", "{7C757EC9-32D1-449E-A8ED-274729D8DC0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20EBB769-B856-429C-A0EB-829F861D3463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20EBB769-B856-429C-A0EB-829F861D3463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20EBB769-B856-429C-A0EB-829F861D3463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20EBB769-B856-429C-A0EB-829F861D3463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C757EC9-32D1-449E-A8ED-274729D8DC0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C757EC9-32D1-449E-A8ED-274729D8DC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C757EC9-32D1-449E-A8ED-274729D8DC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C757EC9-32D1-449E-A8ED-274729D8DC0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
