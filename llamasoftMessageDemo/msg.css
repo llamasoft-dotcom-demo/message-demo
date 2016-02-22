@@ -1,0 +1,23 @@
+article {
+    width: 50%; /* Colleen added to contain the content to a reasonable length. Users have a difficult time reading from one line to the next when the text runs the length of the viewport.*/
+    font: 14px Arial, Helevetica, sans-serif; /*Colleen changed to a sans-serif font which is much more readable for web applications opposed to using serif fonts. Serif fonts are best used in print media and in same cases headers on the web.*/
+    float: left; /* Colleen added to make the page more responsive to viewport changes. Recommend changing to full RWD.*/
+}
+
+aside img {
+    float: right;
+    width: 40%;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 99%;
+    height: 24px;
+}
+
+.buttonChange {
+    background-color: orange;
+    padding: 10px;
+}
