@@ -1,15 +1,45 @@
 var loopHandle = null;
+var count = 1;
 
 // The messageSystem object is where you should do all of your work
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
 messageSystem = {
     showMessage: function(msg) {
-        alert(msg);
+        var msgDiv = document.createElement('div');
+		var text = document.createTextNode(msg);
+		
+		var msgClose = document.createElement('a');
+		msgClose.id = "close";
+		msgClose.href = "#";
+		msgClose.innerHTML = "X";
+		msgClose.onclick = function(){
+        this.parentNode.parentNode.removeChild(this.parentNode);
+        return false;
+    };
+		
+		msgDiv.className = "message";
+		msgDiv.id = "message" + count;
+		msgDiv.appendChild(text);
+		msgDiv.appendChild(msgClose);
+		document.getElementById('messageArea').appendChild(msgDiv);
+		
+		var tr = document.createElement('tr');
+		var td1 = document.createElement('td');
+		var td2 = document.createElement('td');
+		var td3 = document.createElement('td');
+		td1.innerHTML = Date();
+		tr.appendChild(td1);
+		td2.innerHTML = count;
+		tr.appendChild(td2);
+		td3.innerHTML = msg;
+		tr.appendChild(td3);
+		document.getElementById('archiveTable').appendChild(tr);
+		
+		$("#message" + count).delay(3000).fadeOut(2000);
+		count++;
     }
 }
-
-
 
 function showMsg() {
     quotes = [
@@ -46,4 +76,15 @@ $(function() {
            loopHandle = null;
        }
    } );
+   $('#archiveButton').click(function(){
+	   var btn = $(this),
+	   btnTxt = btn.text();
+	   $("#archive").toggle();
+	   if (btnTxt === 'Show Message Archive') {
+		   btn.text('Hide Message Archive');
+	   }
+	   else{
+		   btn.text('Show Message Archive');
+	   }
+   });
 });

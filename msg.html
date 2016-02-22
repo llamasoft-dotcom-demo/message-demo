@@ -8,9 +8,10 @@
         <link href="msg.css" rel="stylesheet">
         </head>
         <body>
+		<div id="messageArea"></div>
+		<div id="mainContent">
             <h1>LLamasoft Message Exercise
             </h1>
-
             <div>
 
                 <p>
@@ -34,7 +35,18 @@
 
             <div>
             <button type="button" id="msgButton">Start Messages</button>
+			<button type="button" id="archiveButton">Show Message Archive</button>
             </div>
+			</div>
+			<div id="archive" style="display:none;">
+				<table id="archiveTable">
+					<tr>
+						<td><b>Date</b></td>
+						<td><b>Num</b></td>
+						<td><b>Message</b></td>
+					</tr>
+				</table>
+			</div>
             
             <div class="footer">
                 <span>&copy; LLamasoft 2016</span>
