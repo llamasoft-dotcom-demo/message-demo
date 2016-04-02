@@ -1,0 +1,30 @@
+Implemented in two ways:
+
+1) using jsMessage framework:
+	a) It shows message on top right of the web page. Message shown doesn't hinder user from performing other tasks on the web page.
+	b) I haven't included any close or delete button because "message gets disappeared when user clicks on it".
+	c) Downloaded required .js and .css files into the message-demo folder and I included them in pull request as well
+
+2) using Notifications API
+	a) "The Notifications API lets a web page or app send notifications that are displayed outside the page at the system level; this lets web apps send information to a user even if the application is idle or in the background. This article looks at the basics of using this API in your own apps." - taken from this link https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API
+
+	b) This lets the user to see notifications even a different tab in the web browser is opened, but these notifications are shown on the bottom of the page
+	c) Few examples are : Google Mail notifications are shown on the desktop even if non-working tab is opened .
+	d) Few observations made here regargin cross-browser performance is:
+		1) Chrome shows only 3 notifications in a web page ( May be there is way to increase the number of notifications to be shown, I am working on it)
+		2) Firefox has no limit on notifications
+		3) IE doesn't support desktop notifications
+
+	e) Also, for jsMessage notifications I used 33000 as expire time just to show the described behavior is working as expected. When I changed it to 3000 milliseconds , one notifications gets cleared before raising another notification
+
+*) commented Notifications API code just above jsMessage implementation in msg.js
+
+3) Few more ideas I tried to implement:
+
+	a)  there are few message frameworks out in the world, like alertify.js, noty.js and etc., but few of them have lot of dependency properties, so I implemented in jsMessage.js
+
+Possible Improvements to jsMessage code I implemented:
+-----------------------------------------------------
+
+1) Have to find a way to let the user know that "click any where here to close the message"
+2) Can make the webpage layout better using bootstrap, but I primarily concentrated on messages (as it is the primary goal of this task)
