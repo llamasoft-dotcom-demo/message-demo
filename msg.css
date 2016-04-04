@@ -11,8 +11,14 @@
 	width: 70%;
 }
 
-.message {
+#messages {
 	position: fixed;
+	top: 0;
+	right: 10px;
+}
+
+.message {
+	position: relative;
 	top: 0;
 	right: 10px;
 	width: 200px;

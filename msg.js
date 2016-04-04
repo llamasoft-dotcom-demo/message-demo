@@ -14,7 +14,7 @@ var messageCount = 0;
 messageSystem = {
     closeMessage: function(id) {
       //console.log("removing id: "+id);
-      $("#"+id).remove();
+      $("#"+id).fadeOut('slow').remove();
     },
 
     showMessage: function(msg) {
@@ -27,7 +27,7 @@ messageSystem = {
         var close = $("<button onClick='messageSystem.closeMessage(this.parentNode.id)' style=>Close</button>");
         $("#message-"+messageCount).append(close);
 
-        $("#message-"+messageCount).fadeIn('fast').delay(3000).fadeOut('fast');
+        $("#message-"+messageCount).fadeIn('fast');
         setTimeout(this.closeMessage,3000,"message-"+messageCount);
     }
 }
