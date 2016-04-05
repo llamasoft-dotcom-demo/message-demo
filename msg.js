@@ -14,7 +14,7 @@ var messageCount = 0;
 messageSystem = {
     closeMessage: function(id) {
       //console.log("removing id: "+id);
-      $("#"+id).fadeOut('slow').remove();
+      $("#"+id).fadeOut('fast').remove();
     },
 
     showMessage: function(msg) {
