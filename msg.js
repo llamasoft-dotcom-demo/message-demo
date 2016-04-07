@@ -1,11 +1,34 @@
 var loopHandle = null;
 
+//number of currently displayed messages
+//need a way to uniquely identify each message div
+var messageCount = 0;
+
+
 // The messageSystem object is where you should do all of your work
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
+
+//TODO:
+//offset messages if multiple on page
 messageSystem = {
+    closeMessage: function(id) {
+      //console.log("removing id: "+id);
+      $("#"+id).fadeOut('fast').remove();
+    },
+
     showMessage: function(msg) {
-        alert(msg);
+        messageCount += 1;
+
+        var message = $("<div class='message' id='message-"+messageCount+"' style='display: none;'></div>").text(msg);
+        //console.log("creating id: "+messageCount);
+        $("#messages").append(message);
+
+        var close = $("<button onClick='messageSystem.closeMessage(this.parentNode.id)' style=>Close</button>");
+        $("#message-"+messageCount).append(close);
+
+        $("#message-"+messageCount).fadeIn('fast');
+        setTimeout(this.closeMessage,3000,"message-"+messageCount);
     }
 }
 
@@ -39,9 +62,11 @@ $(function() {
       btnTxt = btn.text();
        if (btnTxt === 'Start Messages') {
            btn.text('Stop Messages');
+           $("#msgButton").css({"background-color":"red"});
            loopHandle = setTimeout(loop, 500);
        } else {
            btn.text('Start Messages');
+           $("#msgButton").css({"background-color":"green"});
            clearTimeout(loopHandle);
            loopHandle = null;
        }

@@ -5,3 +5,22 @@
     width: 99%;
     height: 24px;
 }
+
+.left {
+	text-align: left;
+	width: 70%;
+}
+
+#messages {
+	position: fixed;
+	top: 0;
+	right: 10px;
+}
+
+.message {
+	position: relative;
+	top: 0;
+	right: 10px;
+	width: 200px;
+	border: 2px solid #73AD21;
+}
