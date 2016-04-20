@@ -1,4 +1,5 @@
 var loopHandle = null;
+
 toastr.options = {
   "closeButton": true,
   "debug": false,
@@ -52,17 +53,32 @@ function loop() {
 
 $(function() {
    $('#msgButton').click(function() {
-       var btn = $(this),
-      btnTxt = btn.text();
-       if (btnTxt === 'Start Messages') {
-           btn.text('Stop Messages');
-           $('#running-indicator').removeClass('hide');
+       var btn = $(this);
+       var btnText = btn.find('#buttonText');
+       if (btn.hasClass('btn-success')) {
+           btnText.text('Stop Messages');
+           btn.removeClass('btn-success');
+           btn.addClass('btn-danger');
+           $('#running-indicator').addClass('fa-spin');
            loopHandle = setTimeout(loop, 500);
        } else {
-           btn.text('Start Messages');
+           btnText.text('Start Messages');
+           btn.removeClass('btn-danger');
+           btn.addClass('btn-success');
            clearTimeout(loopHandle);
-           $('#running-indicator').addClass('hide');
+           $('#running-indicator').removeClass('fa-spin');
            loopHandle = null;
        }
    } );
+   
+   $('#instructionsButton').click(function() {
+      var icon = $('#instructionsIcon');
+      if(icon.hasClass('fa-toggle-down')) {
+          icon.removeClass('fa-toggle-down');
+          icon.addClass('fa-toggle-up');
+      } else {
+          icon.addClass('fa-toggle-down');
+          icon.removeClass('fa-toggle-up');
+      }
+   });
 });

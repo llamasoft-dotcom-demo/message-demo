@@ -4,6 +4,7 @@
         <title>Message Sample</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.2/toastr.min.js"></script>
         <script src="msg.js"></script>
         
@@ -14,40 +15,78 @@
         <link href="msg.css" rel="stylesheet">
         </head>
         <body>
-            <h1>LLamasoft Message Exercise
-            </h1>
-
-            <div>
-
-                <p>
-                Implement a messaging system to replace the random alert boxes that come up. The messaging system
-                should meet the following criteria
-                <ul>
-                <li>Messages should appear near the top of the page</li>
-                <li>Messages should fade out after 3 seconds</li>
-                <li>If a new message appears before the previous message fades out, it should appear below the most recent visible message.</li>
-                <li>Messages should have a close or delete box to dismiss the message before the fade out</li>
-                </ul>
-                </p>
-                
-                <p>
-                In addition to the above features, implement other updates you think might be helpful. E.g. Add an indicator
-                to let the user know that the messages are running in addition to the text change on the button, update the
-                layout to make the page more readable, etc. Feel free to use
-                any third party libraries you find helpful. jQuery and underscore are already referenced.
-                </p>
+            <div class="header clearfix">
+                <nav class="navbar navbar-default">
+                    <ul class="nav navbar-nav pull-right">
+                        <li><a href="www.llamasoft.com">Llamasoft</a></li>
+                    </ul>
+                    <div class="navbar-brand">Message Exercise</div>
+                </nav>
             </div>
-
-            <div>
-            <button type="button" id="msgButton">Start Messages</button>
-            <span id="running-indicator" class="hide">
-                <i class="fa fa-cog fa-spin fa-3x fa-fw margin-bottom"></i>
-                <span class="sr-only">Notifications running...</span>
-            </span>
+            
+            <div class="container">
+                <div class="jumbotron">
+                    <h1 class="text-center">Shiny Message System</h1>
+                    <p class="text-center">Ready to give it a try? Hit "Start Messages" to get started!</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4">
+                                <button type="button" class="btn btn-success btn-lg btn-block" id="msgButton">
+                                    <span id="buttonText">Start Messages</span> 
+                                    <span>
+                                        <i id="running-indicator" class="fa fa-cog fa-2x fa-fw margin-bottom"></i>
+                                        <span class="sr-only">Notifications running...</span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <p>
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <button id="instructionsButton" type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#collapsableInstructions">
+                            Original Instructions
+                            <span>
+                                <i id="instructionsIcon" class="fa fa-toggle-down fa-fw margin-bottom"></i>
+                                <span class="sr-only">Expand instructions</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                </p>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="collapse" id="collapsableInstructions">
+                            <div class="well">
+                                <div>
+                                    <p>
+                                        Implement a messaging system to replace the random alert boxes that come up. The messaging system
+                                        should meet the following criteria
+                                        <ul>
+                                            <li>Messages should appear near the top of the page</li>
+                                            <li>Messages should fade out after 3 seconds</li>
+                                            <li>If a new message appears before the previous message fades out, it should appear below the most recent visible message.</li>
+                                            <li>Messages should have a close or delete box to dismiss the message before the fade out</li>
+                                        </ul>
+                                    </p>
+                                    
+                                    <p>
+                                        In addition to the above features, implement other updates you think might be helpful. E.g. Add an indicator
+                                        to let the user know that the messages are running in addition to the text change on the button, update the
+                                        layout to make the page more readable, etc. Feel free to use
+                                        any third party libraries you find helpful. jQuery and underscore are already referenced.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="footer">
-                <span>&copy; LLamasoft 2016</span>
+                <span>&copy; LLamasoft and Zachary Higgins, 2016</span>
             </div>
         </body>
     </html>
