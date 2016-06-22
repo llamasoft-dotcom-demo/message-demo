@@ -23,14 +23,13 @@ body {
 	border-radius: 25px;
 	width: 75%;
 	margin: 0 auto;
-
-
 }
 
 h1 {
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-weight: 700;
 	text-align: center;
+	margin: 0 auto;
 }
 
 #indicator {
@@ -39,3 +38,10 @@ h1 {
 	color: aqua;
 }
 
+.ux {
+	text-align: center;
+}
+
+#box {
+	background-color: grey;
+}
