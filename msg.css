@@ -1,7 +1,47 @@
+/*edited CSS to use CSS3 features that allow for
+more responsiveness
+
+improved ux & aesthetic*/
+
+body {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 300;
+}
+
 .footer {
-    position: absolute;
+    /*position: absolute;*/
     bottom: 0;
     text-align: center;
     width: 99%;
-    height: 24px;
+    height: 3vwpx;
+}
+
+#msgbox {
+	background-color: aqua;
+	font-size: 2vw;
+	text-align: center;
+	border-radius: 25px;
+	width: 75%;
+	margin: 0 auto;
+}
+
+h1 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#indicator {
+	background-color: white;
+	font-style: bold;
+	color: aqua;
+}
+
+.ux {
+	text-align: center;
+}
+
+#box {
+	background-color: grey;
 }
