@@ -3,6 +3,7 @@ var loopHandle = null;
 // The messageSystem object is where you should do all of your work
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
+<<<<<<< HEAD
 $(function(){
 
 /*
@@ -35,6 +36,11 @@ messageSystem = {
     showMessage: function(msg) {
        // alert(msg);
        toastr.info(msg);
+=======
+messageSystem = {
+    showMessage: function(msg) {
+        alert(msg);
+>>>>>>> 6ad5d2630bf5e75b572fd2da8750a00a0b5d87e5
     }
 }
 
