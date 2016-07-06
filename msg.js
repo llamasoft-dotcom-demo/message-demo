@@ -52,6 +52,7 @@ $(function() {
             btnTxt = btn.text();
         if (btnTxt === 'Start LLama Messages') {
             btn.text('Stop LLama Messages');
+            //Added message to indicate messages are running
             $('<p class="note">The LLama is talking<span>.</span><span>.</span><span>.</span></p>').appendTo('.msgNotification');
             loopHandle = setTimeout(loop, 500);
         } else {
