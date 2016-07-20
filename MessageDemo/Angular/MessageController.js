@@ -4,6 +4,7 @@ function MessageController($scope, $state, notificationFactory, $http) {
     $scope.loading = false;
     $scope.ToasterMessageModel = {};
     $scope.buttonClass = 'btn btn-success';
+    // Original array to hold data. In real world application data can be populated using web api/json backend services
     $scope.quotes = [
     "What we've got here is failure to communicate.",
     'Go ahead, make my day.',
@@ -46,6 +47,8 @@ function MessageController($scope, $state, notificationFactory, $http) {
         notificationFactory.getRandomNotification(_.sample($scope.quotes));
     };
 
+    // Demonstration of $http service and how an external api can be called using it.
+    // Upon receiving successful data notification service is called to create and push toastr notification
     $scope.chuckNorris = function () {
         $http.get('http://api.icndb.com/jokes/random?limitTo=[nerdy]').then(function (response) {
             notificationFactory.getRandomNotification(response.data.value.joke);
