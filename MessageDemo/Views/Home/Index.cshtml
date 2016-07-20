@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*<div class="jumbotron text=center" ng-controller="MessageController">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="page-header">
+                    <h1 class="margin-base-vertical"><span><strong>LL</strong>amasoft</span></h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Quote:</label>
+                    <input type="text" name="AddQuote" ng-model="quoteModel" class="form-control" />
+                </div>
+                <div>
+                    <button type="button" role="button" class="btn btn-default" ng-click="addQuote()">
+                        Add Quote
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label>
+                    Quotes
+                </label>
+                <ul>
+                    <li ng-repeat="quote in quotes">{{quote}}</li>
+                </ul>
+            </div>
+            <button class="{{buttonClass}}" ng-click="startMessage()" data-ng-hide="loading">
+                Start Random Message
+            </button>
+            <button class="{{buttonClass}}" ng-click="stopMessage()" data-ng-show="loading">
+                <span>
+                    Stop Message
+                    <i class="fa fa-spinner fa-spin"></i>
+                </span>
+            </button>
+        </div>
+    </div>
+</div>*@
+
+<div class="container clearfix">
+    <div ui-view>
+        <!-- Placeholder for content injection -->
+    </div>
+</div>

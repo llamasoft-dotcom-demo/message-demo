@@ -1,0 +1,81 @@
+﻿<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="page-header">
+                    <h1 class="margin-base-vertical text-center"><span><strong>D</strong>emo</span></h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <form name="AddMessageForm">
+                <div class="col-md-4 col-md-offset-3">
+                    <div class="form-group">
+                        <input type="text" name="AddMessage" ng-model="quoteModel" class="form-control" required novalidate />
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <button type="button" role="button" class="btn btn-default" ng-click="addQuote()" ng-disabled="AddMessageForm.$invalid">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        Add Message
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <button type="button" role="button" class="btn btn-primary" data-toggle="modal" data-target="#messageModel">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    View Messages
+                </button>
+                <button class="{{buttonClass}}" ng-click="startMessage()" data-ng-hide="loading">
+                    <i class="fa fa-play-circle" aria-hidden="true"></i> Start Random Message
+                </button>
+                <button class="{{buttonClass}}" ng-click="stopMessage()" data-ng-show="loading">
+                    <span>
+                        <i class="fa fa-stop-circle" aria-hidden="true"></i> Stop Message
+                        <i class="fa fa-spinner fa-spin"></i>
+                    </span>
+                </button>
+                <button class="btn btn-info" ng-click="chuckNorris()">
+                    <i class="fa fa-hand-peace-o" aria-hidden="true"></i> Get Random Chuck Norris Notification
+                </button>
+            </div>
+        </div>
+        <hr />
+        <!-- Uncomment following section to see data real time --->
+        <div class="row">
+            <div class="well well-sm">
+                <code>
+                    Quotes : {{quotes}}<br />
+                    Loading : {{loading}}<br />
+                    buttonClass : {{buttonClass}}
+                </code>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="messageModel" tabindex="-1" role="dialog" aria-labelledby="messageModelLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="messageModelLabel">Available Messages</h4>
+            </div>
+            <div class="modal-body">
+                <label>
+                    Quotes
+                </label>
+                <ul>
+                    <li ng-repeat="quote in quotes track by $index">{{quote}}</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+

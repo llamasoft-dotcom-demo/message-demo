@@ -1,0 +1,38 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 99%;
+    height: 24px;
+}
+
+html {
+    background: url(../Images/Monument-Valley-2011-4eda6fdf90a30_hires.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    /*font-family: sans-serif;
+    background-color: gray;*/
+    padding-top: 55px;
+    font-size: 16px;
+    /*font-family: "Open Sans",serif;*/
+    background: transparent;
+    /*background: gray;*/
+}
+
+/*
+h1 {
+    font-family: "Abel", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+}
+*/
+@media (max-width: 979px) {
+    body {
+        padding-top: 55px;
+    }
+}
