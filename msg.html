@@ -1,74 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Message Sample</title>
-    <script src=
-    "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
-    </script>
-    <script src=
-    "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js">
-    </script>
-    <script src="msg.js">
-    </script>
-    <link crossorigin="anonymous" href=
-    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity=
-    "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    rel="stylesheet">
-    <script src=
-    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-    </script>
-    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|PT+Sans" rel="stylesheet">
-    <link href="msg.css" rel="stylesheet">
+  <title>Message Sample</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js">
+  </script>
+  <script src="msg.js">
+  </script>
+  <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity=
+  "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|PT+Sans" rel="stylesheet">
+  <link href="msg.css" rel="stylesheet">
 </head>
 <body>
-          <nav>
-
-              <ul>
-                <li><h2>Llamasoft Exercise</h2></li>
-
-                  <li>  <span aria-hidden="true" class="glyphicon glyphicon-bell fa-4x"></span><div id="dot"></div></li>
-                  <li id="status"></li>
-                  <div id="oldMessages"></div>
-              </ul>
-
-
-        </nav>
-
-
-    <div id="messages"></div>
-    <div class="container content">
-        <div>
-            <h1> Fancy Messages </h1>
-            <p>Implement a messaging system to replace the random alert boxes
-            that come up. The messaging system should meet the following
-            criteria</p>
-            <ul>
-                <li>Messages should appear near the top of the page</li>
-                <li>Messages should fade out after 3 seconds</li>
-                <li>If a new message appears before the previous message fades
-                out, it should appear below the most recent visible
-                message.</li>
-                <li>Messages should have a close or delete box to dismiss the
-                message before the fade out</li>
-            </ul>
-            <p></p>
-            <p>In addition to the above features, implement other updates you
-            think might be helpful. E.g. Add an indicator to let the user know
-            that the messages are running in addition to the text change on the
-            button, update the layout to make the page more readable, etc. Feel
-            free to use any third party libraries you find helpful. jQuery and
-            underscore are already referenced.</p>
-        </div>
-      </div>
-      <div class="buttons">
-          <img src="images/message.png">
-          <button class="button btn btn-lg btn-success" type="button" id="msgButton">Start Messages</button>
-          <button id="clear" class="button btn btn-lg btn-info">Clear notifications</button>
-      </div>
-
-    <div class="footer">
-        <span>&copy; LLamasoft 2016 | Designed by Jennifer Kron</span>
+  <nav>
+    <ul>
+      <li>
+        <h2>Llamasoft Exercise</h2>
+      </li>
+      <li>
+        <span aria-hidden="true" class="glyphicon glyphicon-bell fa-4x"></span>
+        <div id="dot"></div>
+      </li>
+      <li id="status"></li>
+      <li style="list-style: none; display: inline">
+        <div id="oldMessages"></div>
+      </li>
+    </ul>
+  </nav>
+  <div id="messages"></div>
+  <div class="container content">
+    <div>
+      <h1>Fancy Messages</h1>
+      <p>Implement a messaging system to replace the random alert boxes that come up. The messaging system should meet
+      the following criteria</p>
+      <ul>
+        <li>Messages should appear near the top of the page</li>
+        <li>Messages should fade out after 3 seconds</li>
+        <li>If a new message appears before the previous message fades out, it should appear below the most recent
+        visible message.</li>
+        <li>Messages should have a close or delete box to dismiss the message before the fade out</li>
+      </ul>
+      <p></p>
+      <p>In addition to the above features, implement other updates you think might be helpful. E.g. Add an indicator
+      to let the user know that the messages are running in addition to the text change on the button, update the
+      layout to make the page more readable, etc. Feel free to use any third party libraries you find helpful. jQuery
+      and underscore are already referenced.</p>
     </div>
+  </div>
+  <div class="buttons">
+    <img src="images/message.png"> <button class="button btn btn-lg btn-success" id="msgButton" type="button">Start
+    Messages</button> <button class="button btn btn-lg btn-info" id="clear">Clear notifications</button>
+  </div>
+  <div class="footer">
+    <span>&copy; LLamasoft 2016 | Designed by Jennifer Kron</span>
+  </div>
 </body>
 </html>

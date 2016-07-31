@@ -7,6 +7,7 @@ body {
   background-color: #f4f4f4;
 }
 
+  /*****************NAVIGATION*****************/
 
 nav {
   height: 60px;
@@ -21,10 +22,7 @@ nav {
 
 nav li {
   display: inline-block;
-
-
 }
-
 
 h1 {
   font-family: 'Lato', sans-serif;
@@ -36,20 +34,12 @@ h2 {
   width: 300px;
 }
 
-#messages {
-    position: fixed;
-    right: 20px;
-    top: 10px;
-    width: 200px;
-}
-
 .glyphicon-bell {
     font-size: 1.5em;
     margin: 0;
     padding-bottom: 10px;
     display: none;
 }
-
 
 #dot {
     display: none;
@@ -74,6 +64,15 @@ h2 {
 #status {
     margin-left: 15px;
 }
+
+  /*****************NEW MESSAGES*****************/
+
+  #messages {
+      position: fixed;
+      right: 20px;
+      top: 10px;
+      width: 200px;
+  }
 
 .notify {
     position: relative;
@@ -116,6 +115,8 @@ h2 {
     outline-style: none;
 }
 
+  /*****************MAIN CONTENT*****************/
+
 .buttons {
   display:inline-block;
   float: right;
@@ -154,6 +155,10 @@ h2 {
   padding: 50px 120px;
   line-height: 1.5em;
 }
+
+  /*****************OLD MESSAGES*****************/
+
+
 .oldMessage {
     padding: 10px;
     border-bottom: 1px solid silver;
@@ -163,11 +168,9 @@ h2 {
     border: 0;
 }
 
-
-
 #oldMessages {
     border: 1px solid silver;
-    background-color: #f8f8f8;
+    background-color: #fff;
     width: 200px;
     position: absolute;
     top: 55px;
@@ -180,14 +183,10 @@ h2 {
     display: none;
 }
 
-
-/*****************MEDIA QUERIES*****************/
-
 .date {
   font-size: .6em;
   opacity: 0.5;
 }
-
 
 .footer {
     bottom: 0;
@@ -195,7 +194,6 @@ h2 {
     color: #9c9c9c;
     text-align: center;
 }
-
 
 /*****************MEDIA QUERIES*****************/
 
@@ -217,35 +215,33 @@ h2 {
       min-height: 0;
       font-size: .8em;
       text-align: center;
-    }
+  }
 
-#status {
-  display: none;
-}
+  #status {
+    display: none;
+  }
 
-h1 {
-  font-size: 2em;
-}
+  h1 {
+    font-size: 2em;
+  }
 
-nav {
-  text-align: center;
-}
+  nav {
+    text-align: center;
+  }
 
-nav ul {
-  padding: 0;
-}
+  nav ul {
+    padding: 0;
+  }
 
-#dot {
-  display: inline-block;
-  float:right;
-}
+  #dot {
+    display: inline-block;
+    float:right;
+  }
 
-#oldMessages {
-    border: 1px solid silver;
-    background-color: #f8f8f8;
-    width: 200px;
+  #oldMessages {
     position: absolute;
     top: 55px;
     left: 180px;
 
+  }
 }
