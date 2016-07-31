@@ -1,7 +1,247 @@
-.footer {
+body {
+  color: #FFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  margin: 0;
+  padding:0;
+  background-color: #f4f4f4;
+}
+
+  /*****************NAVIGATION*****************/
+
+nav {
+  height: 60px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: #d8d8d8;
+  color: #9c9c9c;
+  font-family: "Lato";
+  padding-bottom: 5px;
+}
+
+nav li {
+  display: inline-block;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 30px;
+  font-size: 4em;
+}
+
+h2 {
+  width: 300px;
+}
+
+.glyphicon-bell {
+    font-size: 1.5em;
+    margin: 0;
+    padding-bottom: 10px;
+    display: none;
+}
+
+#dot {
+    display: none;
+    background-color: #e83400;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
     position: absolute;
-    bottom: 0;
+    top: 20px;
+    left: 355px;
+    color: #FFF;
     text-align: center;
-    width: 99%;
-    height: 24px;
+    font-size: 1em;
+    font-weight: 600;
+    -moz-box-shadow: 0 0 1px #000;
+    -webkit-box-shadow: 0 0 1px #000;
+    box-shadow: 0 0 1px #000;
+    cursor: pointer;
+    line-height: normal;
+}
+
+#status {
+    margin-left: 15px;
+}
+
+  /*****************NEW MESSAGES*****************/
+
+  #messages {
+      position: fixed;
+      right: 20px;
+      top: 10px;
+      width: 200px;
+  }
+
+.notify {
+    position: relative;
+    top: 5px;
+    right: 70px;
+    width: 250px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: .9em;
+    font-weight: 300;
+    padding: 6px;
+    margin: 20px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-box-shadow: 0 0 5px #000;
+    -webkit-box-shadow: 0 0 5px #000;
+    box-shadow: 0 0 10px #000;
+    color: #004d7e;
+    border: 1px solid #5bc0de;
+    background: -webkit-gradient(linear,50% 0%,50% 100%,color-stop(0%,#c3e7f2),color-stop(100%,#5bc0de));
+    background: -moz-linear-gradient(top,#c3e7f2,	#5bc0de);
+    background: -webkit-linear-gradient(top,#c3e7f2,#5bc0de);
+    background: linear-gradient(to bottom,#c3e7f2,#5bc0de);
+}
+
+.close {
+    margin: 3px;
+    margin-bottom: 5px;
+    float: right;
+    background-color: transparent;
+    border: 0;
+    font-weight: 600;
+    font-size: 1em;
+    color: #003d65;
+    opacity: .5;
+    font-family: "Open Sans";
+}
+
+.close:focus {
+    outline-style: none;
+}
+
+  /*****************MAIN CONTENT*****************/
+
+.buttons {
+  display:inline-block;
+  float: right;
+  width: 40%;
+  min-height: 600px;
+  border: 0;
+  margin-top: 80px;
+  padding: 50px;
+  padding-top: 100px;
+  text-align: center;
+  line-height: 1.5em;
+  background-color: #FFF;
+}
+
+.btn {
+  margin: 10px 0;
+}
+
+.buttons img {
+  max-width: 60%;
+  display: block;
+  margin: auto;
+  margin-bottom: 60px;
+
+}
+
+.content {
+  display: inline;
+  float: left;
+  width: 60%;
+  background-color: #3f5373;
+  height: 100%
+  border: 0;
+  min-height: 600px;
+  margin-top: 80px;
+  padding: 50px 120px;
+  line-height: 1.5em;
+}
+
+  /*****************OLD MESSAGES*****************/
+
+
+.oldMessage {
+    padding: 10px;
+    border-bottom: 1px solid silver;
+}
+
+.oldMessage:last-of-type {
+    border: 0;
+}
+
+#oldMessages {
+    border: 1px solid silver;
+    background-color: #fff;
+    width: 200px;
+    position: absolute;
+    top: 55px;
+    left: 210px;
+    -moz-box-shadow: 1px 1px 1px silver;
+    -webkit-box-shadow: 1px 1px 1px silver;
+    box-shadow: 1px 1px 1px silver;
+    overflow: hidden;
+    cursor: pointer;
+    display: none;
+}
+
+.date {
+  font-size: .6em;
+  opacity: 0.5;
+}
+
+.footer {
+    bottom: 0;
+    height: 10px;
+    color: #9c9c9c;
+    text-align: center;
+}
+
+/*****************MEDIA QUERIES*****************/
+
+@media (max-width: 700px) {
+  .buttons {
+    display:block;
+    width: 100%;
+    padding: 30px;
+    margin: 0;
+    min-height: 0;
+    }
+
+  .content {
+      display: block;
+      width: 100%;
+      padding: 20px;
+      padding-top: 30px;
+      margin-top: 30px;
+      min-height: 0;
+      font-size: .8em;
+      text-align: center;
+  }
+
+  #status {
+    display: none;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  nav {
+    text-align: center;
+  }
+
+  nav ul {
+    padding: 0;
+  }
+
+  #dot {
+    display: inline-block;
+    float:right;
+  }
+
+  #oldMessages {
+    position: absolute;
+    top: 55px;
+    left: 180px;
+
+  }
 }

@@ -1,0 +1,23 @@
+{
+  "name": "message-demo",
+  "version": "1.0.0",
+  "description": "Sample project for prospects",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkron87/message-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkron87/message-demo/issues"
+  },
+  "homepage": "https://github.com/jkron87/message-demo#readme",
+  "devDependencies": {
+    "gulp-jshint": "^2.0.1",
+    "jshint": "^2.9.2"
+  }
+}
