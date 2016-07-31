@@ -1,18 +1,55 @@
-.main {
-    margin-top: 40px;
+body {
+  color: #FFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  margin: 0;
+  padding:0;
+  background-color: #f4f4f4;
+}
+
+
+nav {
+  height: 60px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: #d8d8d8;
+  color: #9c9c9c;
+  font-family: "Lato";
+  padding-bottom: 5px;
+}
+
+nav li {
+  display: inline-block;
+
+
+}
+
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 30px;
+  font-size: 4em;
+}
+
+h2 {
+  width: 300px;
 }
 
 #messages {
-    position: absolute;
+    position: fixed;
     right: 20px;
     top: 10px;
     width: 200px;
 }
 
 .glyphicon-bell {
-    display: none;
     font-size: 1.5em;
+    margin: 0;
+    padding-bottom: 10px;
+    display: none;
 }
+
 
 #dot {
     display: none;
@@ -21,8 +58,8 @@
     width: 20px;
     border-radius: 50%;
     position: absolute;
-    top: 10px;
-    left: 210px;
+    top: 20px;
+    left: 355px;
     color: #FFF;
     text-align: center;
     font-size: 1em;
@@ -31,12 +68,11 @@
     -webkit-box-shadow: 0 0 1px #000;
     box-shadow: 0 0 1px #000;
     cursor: pointer;
+    line-height: normal;
 }
 
 #status {
-    display: block;
-    float: left;
-    margin-left: 40px;
+    margin-left: 15px;
 }
 
 .notify {
@@ -44,7 +80,7 @@
     top: 5px;
     right: 70px;
     width: 250px;
-    font-family: "Open Sans";
+    font-family: 'Open Sans', sans-serif;
     font-size: .9em;
     font-weight: 300;
     padding: 6px;
@@ -52,15 +88,15 @@
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
-    -moz-box-shadow: 0 0 10px #000;
-    -webkit-box-shadow: 0 0 10px #000;
+    -moz-box-shadow: 0 0 5px #000;
+    -webkit-box-shadow: 0 0 5px #000;
     box-shadow: 0 0 10px #000;
     color: #004d7e;
-    border: 1px solid #318eff;
-    background: -webkit-gradient(linear,50% 0%,50% 100%,color-stop(0%,#cae2ff),color-stop(100%,#97c6ff));
-    background: -moz-linear-gradient(top,#cae2ff,#97c6ff);
-    background: -webkit-linear-gradient(top,#cae2ff,#97c6ff);
-    background: linear-gradient(to bottom,#cae2ff,#97c6ff);
+    border: 1px solid #5bc0de;
+    background: -webkit-gradient(linear,50% 0%,50% 100%,color-stop(0%,#c3e7f2),color-stop(100%,#5bc0de));
+    background: -moz-linear-gradient(top,#c3e7f2,	#5bc0de);
+    background: -webkit-linear-gradient(top,#c3e7f2,#5bc0de);
+    background: linear-gradient(to bottom,#c3e7f2,#5bc0de);
 }
 
 .close {
@@ -81,17 +117,43 @@
 }
 
 .buttons {
-    text-align: center;
+  display:inline-block;
+  float: right;
+  width: 40%;
+  min-height: 600px;
+  border: 0;
+  margin-top: 80px;
+  padding: 50px;
+  padding-top: 100px;
+  text-align: center;
+  line-height: 1.5em;
+  background-color: #FFF;
 }
 
-.footer {
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    width: 99%;
-    height: 24px;
+.btn {
+  margin: 10px 0;
 }
 
+.buttons img {
+  max-width: 60%;
+  display: block;
+  margin: auto;
+  margin-bottom: 60px;
+
+}
+
+.content {
+  display: inline;
+  float: left;
+  width: 60%;
+  background-color: #3f5373;
+  height: 100%
+  border: 0;
+  min-height: 600px;
+  margin-top: 80px;
+  padding: 50px 120px;
+  line-height: 1.5em;
+}
 .oldMessage {
     padding: 10px;
     border-bottom: 1px solid silver;
@@ -100,6 +162,8 @@
 .oldMessage:last-of-type {
     border: 0;
 }
+
+
 
 #oldMessages {
     border: 1px solid silver;
@@ -114,4 +178,74 @@
     overflow: hidden;
     cursor: pointer;
     display: none;
+}
+
+
+/*****************MEDIA QUERIES*****************/
+
+.date {
+  font-size: .6em;
+  opacity: 0.5;
+}
+
+
+.footer {
+    bottom: 0;
+    height: 10px;
+    color: #9c9c9c;
+    text-align: center;
+}
+
+
+/*****************MEDIA QUERIES*****************/
+
+@media (max-width: 700px) {
+  .buttons {
+    display:block;
+    width: 100%;
+    padding: 30px;
+    margin: 0;
+    min-height: 0;
+    }
+
+  .content {
+      display: block;
+      width: 100%;
+      padding: 20px;
+      padding-top: 30px;
+      margin-top: 30px;
+      min-height: 0;
+      font-size: .8em;
+      text-align: center;
+    }
+
+#status {
+  display: none;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+nav {
+  text-align: center;
+}
+
+nav ul {
+  padding: 0;
+}
+
+#dot {
+  display: inline-block;
+  float:right;
+}
+
+#oldMessages {
+    border: 1px solid silver;
+    background-color: #f8f8f8;
+    width: 200px;
+    position: absolute;
+    top: 55px;
+    left: 180px;
+
 }

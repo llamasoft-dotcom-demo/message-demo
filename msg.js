@@ -7,31 +7,37 @@ messageSystem = {
     counter: 0,
     //adds new message to message div and notification list
     showMessage: function(msg) {
-        var newMessageBox = this.createNewElement(msg);
+        var newMessageBox = this.createnewActiveMessageement(msg);
         $('#messages').append(newMessageBox);
-        this.addToNotificationList(msg);
+        var date = new Date();
+        this.addToNotificationList(msg, date);
+        $('#dot').text('').show();
+        $('.glyphicon-bell').show();
     },
     //creates an individual div with a close button for each message and adds a click handler to close the message
-    createNewElement: function(msg) {
-        array = [];
-        var newEl = $('<div class="notify info"></div>').text(msg);
-        newEl.fadeIn().delay(3000).slideUp();
-        $('<button class="close"></button>').text('X').appendTo(newEl).on(
+    createnewActiveMessageement: function(msg) {
+        allMessages = [];
+        var newActiveMessage = $('<div class="notify info"></div>').text(msg);
+        newActiveMessage.fadeIn().delay(3000).slideUp(function(){
+            $(this).remove()
+          });
+
+        $('<button class="close"></button>').text('X').appendTo(newActiveMessage).on(
             'click', function() {
-                newEl.remove();
+                newActiveMessage.remove();
             });
-        //pushes the message div to an array to be used to create a list of previous messages
-        array.push(newEl);
-        return newEl;
+        //pushes the message div to an allMessages to be used to create a list of previous messages
+        allMessages.push(newActiveMessage);
+        return newActiveMessage;
     },
     //notification list includes all the previous messages that have appeared in the message system
-    addToNotificationList: function(msg) {
-        for (var i = 0; i < array.length; i++) {
-            //slice is required to take of the 'x' button that was appended to the newEl div
-            var textWithoutX = array[i].text().slice(0, (array[i].text()
+    addToNotificationList: function(msg, date) {
+        for (var i = 0; i < allMessages.length; i++) {
+            //slice is required to take of the 'x' button that was appended to the newActiveMessage div
+            var textWithoutX = allMessages[i].text().slice(0, (allMessages[i].text()
                 .length - 1));
-            var oldMessages = $('<div class="oldMessage"></div>').text(
-                textWithoutX);
+            var oldMessages = $('<div class="oldMessage"></div>').html(
+                textWithoutX + '<br>' + '<div class="date">' + date + '</div>');
             $(oldMessages).appendTo('#oldMessages');
         }
     },
@@ -60,6 +66,7 @@ function loop() {
 }
 $(function() {
     $('#msgButton').click(function() {
+      $(this).toggleClass('btn-success btn-danger');
         var btn = $(this),
             btnTxt = btn.text();
         if (btnTxt === 'Start Messages') {
@@ -77,6 +84,7 @@ $(function() {
             clearTimeout(loopHandle);
             loopHandle = null;
         }
+
     });
 });
 
@@ -84,7 +92,7 @@ $(function() {
 //when clear is clicked, counter is reset
 $(function() {
     $('#clear').click(function() {
-        array = [];
+        allMessages = [];
         clearTimeout(loopHandle);
         loopHandle = null;
         $('#messages').text('');

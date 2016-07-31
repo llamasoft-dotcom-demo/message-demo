@@ -18,28 +18,28 @@
     <script src=
     "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
     </script>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|PT+Sans" rel="stylesheet">
     <link href="msg.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container main">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <div class="navbar-brand navbar-left">
-                        Llamasoft Exercise
-                    </div>
-                    <p class="navbar-text navbar-right"><span aria-hidden=
-                    "true" class="glyphicon glyphicon-bell fa-4x"></span></p>
-                    <div id="dot"></div>
-                </div>
-                <p class="navbar-text" id="status"></p>
-                <div id="oldMessages"></div>
-            </div>
+          <nav>
+
+              <ul>
+                <li><h2>Llamasoft Exercise</h2></li>
+
+                  <li>  <span aria-hidden="true" class="glyphicon glyphicon-bell fa-4x"></span><div id="dot"></div></li>
+                  <li id="status"></li>
+                  <div id="oldMessages"></div>
+              </ul>
+
+
         </nav>
-    </div>
+
+
     <div id="messages"></div>
     <div class="container content">
         <div>
+            <h1> Fancy Messages </h1>
             <p>Implement a messaging system to replace the random alert boxes
             that come up. The messaging system should meet the following
             criteria</p>
@@ -60,13 +60,15 @@
             free to use any third party libraries you find helpful. jQuery and
             underscore are already referenced.</p>
         </div>
-        <div class="buttons">
-            <button class="button" id="msgButton">Start Messages</button>
-            <button class="button" id="clear">Clear notifications</button>
-        </div>
-        <div class="footer">
-            <span>&copy; LLamasoft 2016</span>
-        </div>
+      </div>
+      <div class="buttons">
+          <img src="images/message.png">
+          <button class="button btn btn-lg btn-success" type="button" id="msgButton">Start Messages</button>
+          <button id="clear" class="button btn btn-lg btn-info">Clear notifications</button>
+      </div>
+
+    <div class="footer">
+        <span>&copy; LLamasoft 2016 | Designed by Jennifer Kron</span>
     </div>
 </body>
 </html>
