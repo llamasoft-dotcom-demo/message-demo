@@ -2,11 +2,11 @@
 1. Alerts now appear as messages that fade in and out.  Position is fixed so user can still see them even when scrolling.
 2. When more than one message appears, the message boxes are stacked.
 3. Each message has a close button that will remove the message from view.
-4. There is a notification system that counts the number of new messages received.  When the notification icon is clicked old 5. Messages and their timestamp can be viewed and the red notification circle is removed on clicking the message list.
-6. I created a clear button to remove all notifications.
-7. There is a status indicator when the messages are running.
-8. I added a media query to make the site responsive on mobile devices. Content is stacked vertically.
-9. Layout updated to make the site more readable.
+4. There is a notification system that counts the number of new messages received.  When the notification icon is clicked old messages and their timestamp can be viewed and the red notification circle is removed on clicking the message list.
+5. I created a clear button to remove all notifications.
+6. There is a status indicator when the messages are running.
+7. I added a media query to make the site responsive on mobile devices. Content is stacked vertically.
+8. Layout updated to make the site more readable.
 
 #Interesting things you noticed about the code:
 I noticed the mesage system is namespaced to avoid collisions with other objects or variables in the global scope. 
