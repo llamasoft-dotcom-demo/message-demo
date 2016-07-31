@@ -5,6 +5,8 @@ Each message has a close button that will remove the message from view.
 There is a notification system that counts the number of new messages received.  When the notification icon is clicked old messages and their timestamp can be viewed and the red notification circle is removed on clicking the message list.
 I created a clear button to remove all notifications.
 There is a status indicator when the messages are running.
+I added a media query to make the site responsive on mobile devices. Content is stacked vertically.
+Layout updated to make the site more readable.
 
 Interesting things you noticed about the code:
 I noticed the mesage system is namespaced to avoid collisions with other objects or variables in the global scope. 
