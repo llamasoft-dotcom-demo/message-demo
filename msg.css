@@ -1,7 +1,77 @@
-.footer {
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    width: 99%;
-    height: 24px;
+body{
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
+p{
+	font-size: 18px;
+	padding:1%;
+}
+li{
+	font-size: 18px;
+}
+.col-md-12{
+	height: 35px;
+    background-color: #555559;
+}
+.col-md-6{
+	padding-top:4%;
+}
+.container{
+	width:100%;
+}
+.col-lg-12{
+    text-align:center;
+    background-color: #084c95;
+    color:white;
+}
+button{
+	display:block;
+	float:left;
+	clear:left;
+}
+#msgButton{
+	border-radius:5px;
+	margin-left: 1%;
+}
+.grey{
+  background-color:#e5edf4;
+}
+span{
+	font-weight: bold;
+}
+#footer{
+	margin-top:10%;
+	bottom:0;
+	text-align:center;
+}
+.notifyjs-close-base {
+  opacity: 0.9;
+  background-color: silver;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.notifyjs-close-base .title {
+  float: left;
+  margin: 10px 0 0 10px;
+  text-align: right;
+}
+
+.notifyjs-close-base .buttons {
+  float: right;
+  background-color: silver;
+  font-size: 11px;
+  padding: 5px;
+  margin: 2px;
+}
+.notifyjs-close-base button {
+  font-size: 9px;
+  padding: 5px;
+  margin: 2px;
+ }
+ #cancel{
+ 	padding-left:1%;
+ 	padding-top:3%;
+ 	font-size: 16px;
+ 	font-weight: bold;
+ }
+
