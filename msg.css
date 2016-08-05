@@ -1,3 +1,18 @@
+body {
+	background-color: #424D89;
+	color: #DCBA6D;
+}
+
+button {
+	width: 180px;
+	height: 30px;
+	background-color: #DCBA6D;
+	color: #fff;
+	border: 1px solid #000;
+	border-radius: 4px;
+	font-size: 1em;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -5,3 +20,4 @@
     width: 99%;
     height: 24px;
 }
+

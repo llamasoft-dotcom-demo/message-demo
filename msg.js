@@ -5,11 +5,21 @@ var loopHandle = null;
 // is appropriate
 messageSystem = {
     showMessage: function(msg) {
-        alert(msg);
-    }
+        $.notify(msg);
+
+$.notify ({
+			msg: msg
+		},
+		{
+	        allowDismiss: true,
+	        autoHideDelay: 3000,
+	        showAnimation: "slideUp",
+	        hideAnimation: "fadeOut"
+		});
+
+    }	
+
 }
-
-
 
 function showMsg() {
     quotes = [
@@ -37,11 +47,11 @@ $(function() {
    $('#msgButton').click(function() {
        var btn = $(this),
       btnTxt = btn.text();
-       if (btnTxt === 'Start Messages') {
+       if (btnTxt === 'Retrieve Messages') {
            btn.text('Stop Messages');
            loopHandle = setTimeout(loop, 500);
        } else {
-           btn.text('Start Messages');
+           btn.text('Retrieve Messages');
            clearTimeout(loopHandle);
            loopHandle = null;
        }
