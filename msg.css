@@ -5,3 +5,31 @@
     width: 99%;
     height: 24px;
 }
+
+
+.message-box div{
+	border: 1px solid #CCCCCC;
+	background-color: #E0E0E0;
+	padding: 15px 15px 15px 45px;
+	background-position: 10px 10px;
+	border-radius: 3px;
+	box-shadow: 0px 1px 5px #999;
+	margin: 10px 0px;
+}
+
+
+.close-message {
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+	text-decoration: none;
+}
+
+.close-message:hover {
+    color: white;
+}
