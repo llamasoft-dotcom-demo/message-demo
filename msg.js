@@ -5,7 +5,26 @@ var loopHandle = null;
 // is appropriate
 messageSystem = {
     showMessage: function(msg) {
-        alert(msg);
+        messageSystem.makeMessage(msg);
+    },
+
+    makeMessage: function(msg) {
+      var $msg = $('<div></div>');
+      var $content = $('<p></p>');
+      $msg.attr('class', 'msg');
+      $content.text(msg)
+      var $btn = $('<button></button>');
+      $btn.text('X');
+      $btn.appendTo($msg);
+      $content.appendTo($msg);
+      $msg.appendTo('#msgDiv');
+      var lifecycle = setTimeout(function() {
+        $msg.fadeOut(1000, function() {
+
+          // $msg.remove()
+        });
+        // $msg.remove();
+      }, 3000);
     }
 }
 
@@ -23,7 +42,7 @@ function showMsg() {
     "I have come here to chew bubble gum and kick ass, and I'm all out of bubble gum."
     ];
     messageSystem.showMessage(_.sample(quotes));
-    
+
 }
 
 function loop() {
@@ -32,7 +51,6 @@ function loop() {
     loopHandle = setTimeout(loop, rand);
 }
 
-
 $(function() {
    $('#msgButton').click(function() {
        var btn = $(this),
@@ -40,10 +58,16 @@ $(function() {
        if (btnTxt === 'Start Messages') {
            btn.text('Stop Messages');
            loopHandle = setTimeout(loop, 500);
+           $('#messengerStatus').text('Active');
+
        } else {
            btn.text('Start Messages');
+           $('#messengerStatus').text('Inactive');
            clearTimeout(loopHandle);
            loopHandle = null;
        }
    } );
+  $('#msgDiv').on('click', 'button', function() {
+    $(this).parent().remove();
+  });
 });

@@ -5,3 +5,63 @@
     width: 99%;
     height: 24px;
 }
+#content {
+  width: 80%;
+}
+
+#msgDiv {
+  position: absolute;
+  top: 5%;
+  left: 80%;
+  width:20%;
+  height: 80%;
+  font-family: arial;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #C5E7E2;
+  border-radius: 5px;
+
+}
+
+#messengerTitle {
+  font-size: 30px;
+  margin: 5px
+}
+
+#messengerStatus {
+  margin: 5px;
+}
+
+.msg {
+  width: 95%;
+  margin: 0px;
+  padding-top: 5px;
+  background-color: #86BBD8;
+  margin: 3px 0px;
+  margin-right: 3px;
+  border-radius: 3px;
+  box-shadow: 2px 1px rgba(0,0,0,0.2);
+}
+
+.msg button {
+  position: relative;
+  top: -3px;
+  left: 2px;
+  background-color: #6E75A8;
+  border: 1px solid #627264;
+  border-radius: 3px;
+  /*left: -50px;*/
+}
+.msg button:hover {
+  background-color: #E3D081;
+}
+
+.msg p {
+  padding: 0px 5px;
+  padding-bottom: 5px;
+  padding-top: 3px;
+  padding-left: 8px;
+  text-align: left;
+  margin: 0;
+  line-height: 1.3;
+}
