@@ -5,3 +5,162 @@
     width: 99%;
     height: 24px;
 }
+
+body {
+    font-family: Verdana, sans-serif;
+}
+
+body.messages div.content {
+    width: 67%;
+}
+
+div.msg_sort {
+    cursor: pointer;
+    float: right;
+    margin-right: 0.5em;
+    color: black;
+}
+
+div.msg_sort i.fa-sort-asc {
+    display: none;
+}
+
+div.msg_sort i.fa-sort-desc {
+    display: inline-block;
+}
+
+div.msg_sort.ascending i.fa-sort-asc {
+    display: inline-block;
+}
+
+div.msg_sort.ascending i.fa-sort-desc {
+    display: none;
+}
+
+div.msg_wrapper {
+    position: absolute;
+    top: 0.75em;
+    right: 0;
+    margin-right: 0.5em;
+    margin-top: 1em;
+    width: 20em;
+}
+
+    div.msg_wrapper.open {
+        margin-left: 1em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        float: right;
+        border: solid 1px lightgray;
+        border-radius: 5px;
+        width:30%;
+    }
+
+        div.msg_wrapper.open div.msg_header {
+            display:inline-block;
+        }
+
+div.list_ctrls {
+    position: absolute;
+    padding: 0.25em;
+    right: 1em;
+    color: lightgray;
+    cursor: pointer;
+    top: 0;
+}
+
+div.bullhorn {
+    cursor: pointer;
+    float: right;
+    margin-left: 0.5em;
+}
+
+    div.bullhorn.msg_on {
+        color: black;
+    }
+
+div.msg_container {
+    cursor: pointer;
+    float: right;
+    margin-left: 0.5em;
+}
+
+    div.msg_container.open {
+        color:black;
+    }
+
+div.msg_history {
+    cursor: pointer;
+    float: right;
+}
+
+    div.msg_history.open {
+        color:black;
+    }
+
+div.msg_controls {
+    float:right;
+    width:1em;
+}
+
+    div.msg_controls i {
+        margin-bottom: 0.5em;
+        cursor: pointer;
+    }
+
+div.msg_header {
+    width: 22em;
+    font-size: smaller;
+    margin-top: 0;
+    margin-bottom: 0.25em;
+    text-align: left;
+    color: lightgray;
+    padding: 0.65em;
+    display: none;
+    letter-spacing: 2px;
+}
+
+div.msg {
+    margin-bottom: 1em;
+    border: 1px solid lightgray;
+    border-bottom-right-radius:3px;
+    border-bottom-left-radius:3px;
+    padding: 0.5em;
+    background-color: #f8fcff;
+    display:flex;
+}
+
+    div.msg:hover {
+        border-color: black;
+    }
+
+div.msg_text {
+    margin-bottom: 1em;
+    font-size: smaller;
+}
+
+div.msg_body {
+    float: left;
+    width: 75%;
+    margin-right: 0.25em;
+    margin-left: 0.25em;
+    position: relative;
+}
+
+div.msg_datetime {
+    font-size: x-small;
+    font-style: italic;
+    position:absolute;
+    bottom:0;
+}
+
+div.msg_icon {
+    float:left;
+    width: 4em;
+    margin-right: 0.5em;
+}
+
+    div.msg_icon img {
+        max-width: 4em;
+        max-height: 4em;
+    }
