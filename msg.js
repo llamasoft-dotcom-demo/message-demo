@@ -4,30 +4,59 @@ var loopHandle = null;
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
 messageSystem = {
+    //counter property to prevent overflow
+    msgCount: 0,
+
     showMessage: function(msg) {
+      /*Takes a string as input.
+      Checks message count and send input to makeMessage fnctn*/
+      if (messageSystem.msgCount < 5) {
         messageSystem.makeMessage(msg);
+      }
     },
 
     makeMessage: function(msg) {
+      /*Takes a string as input.
+      Creates a msg el on the DOM and attaches listeners.*/
+      messageSystem.msgCount += 1;
+      //creates encompassing div
       var $msg = $('<div></div>');
-      var $content = $('<p></p>');
       $msg.attr('class', 'msg');
-      $content.text(msg)
+      //creates p for msg content
+      var $content = $('<p></p>');
+
+      if(msg.length > 50) {
+        $content.text(msg.slice(0, 50) + "...");
+      } else { $content.text(msg) }
+
+      //Creates msg close btn
       var $btn = $('<button></button>');
       $btn.text('X');
       $btn.appendTo($msg);
       $content.appendTo($msg);
-      $msg.appendTo('#msgDiv');
-      var lifecycle = setTimeout(function() {
-        $msg.fadeOut(1000, function() {
 
-          // $msg.remove()
-        });
-        // $msg.remove();
+      //prevents deletion when msg is clicked in browser
+      $msg.click = false;
+      //start click event listener for each $msg
+      $msg.on('click', function() {
+        $msg.click = true;
+      });
+      $msg.appendTo('#msgDiv');
+      //msgs are removed after 3 seconds unless clicked.
+      var lifecycle = setTimeout(function() {
+        console.log($msg.click);
+
+        if($msg.click === false) {
+          //msgs fade before being removed.
+          $msg.fadeOut(1000, function() {
+
+            $msg.remove()
+            messageSystem.msgCount -= 1;
+          });
+        }
       }, 3000);
     }
 }
-
 
 
 function showMsg() {
@@ -42,7 +71,6 @@ function showMsg() {
     "I have come here to chew bubble gum and kick ass, and I'm all out of bubble gum."
     ];
     messageSystem.showMessage(_.sample(quotes));
-
 }
 
 function loop() {
@@ -69,5 +97,6 @@ $(function() {
    } );
   $('#msgDiv').on('click', 'button', function() {
     $(this).parent().remove();
+    messageSystem.msgCount -= 1;
   });
 });
