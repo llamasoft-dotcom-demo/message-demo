@@ -1,3 +1,13 @@
+body {
+    margin-bottom: 40px;
+    margin-top: 80px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -10,6 +20,10 @@
 	padding-top: 10px;
 }
 
-.top-container {
-    margin-top: 70px;	
+.alert-container {
+	position: absolute;
+}
+
+#msg-panel .panel-body{
+	min-height: 300px;
 }
