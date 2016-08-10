@@ -1,7 +1,142 @@
+body, html {
+  margin: 0px;
+  padding: 0px;
+}
 .footer {
-    position: absolute;
+    background-color: rgba(200,200,200, 0.8);
+    margin: 0;
+    padding: 0;
+    position: fixed;
     bottom: 0;
     text-align: center;
-    width: 99%;
+    width: 100%;
     height: 24px;
+}
+#content {
+  width: 80%;
+  margin-left: 10px;
+  line-height: 1.4;
+  color: #202020;
+  font-family: 'Open sans';
+}
+
+#msgDiv {
+  font-family: 'Open sans';
+  position: absolute;
+  top: 5%;
+  left: 80%;
+  width:20%;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 3px;
+  background-color: #c1c1bF;
+  border-radius: 5px;
+}
+
+#messengerTitle {
+  padding-top: 10px;
+  font-size: 30px;
+  margin: 5px
+}
+
+#messengerStatus {
+  margin: 5px;
+}
+
+#msgButton {
+  font-size: 16px;
+  margin-left: 25px;
+  padding: 4px;
+  background-color: #c1c1bF;
+  font-family: 'Open sans';
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 30px;
+
+}
+
+.msg {
+  width: 95%;
+  margin: 0px;
+  padding-top: 5px;
+  background-color: #004996;
+  margin: 3px 0px;
+  margin-right: 3px;
+  border-radius: 3px;
+  box-shadow: 2px 1px rgba(0,0,0,0.2);
+  color: white;
+}
+
+.msg button {
+  color: white;
+  position: relative;
+  top: -7px;
+  left: 4px;
+  background-color: #0096DB;
+  border: none;
+  border-radius: 3px;
+}
+
+.msg button:hover {
+  background-color: #E3D081;
+}
+
+#msgDiv p {
+
+  width: 90%;
+  position: relative;
+  top: -5px;
+  padding-left: 5%;
+  text-align: left;
+  margin: 0;
+  line-height: 1.3;
+  pointer-events: none;
+  font-family: 'open sans';
+}
+
+@media (max-width: 800px) {
+
+  #msgDiv {
+    width: 200px;
+    left: calc(100% - 180px);
+  }
+  #messengerTitle {
+    font-size: 20px;
+  }
+  #messengerStatus {
+    font-size: 16px;
+  }
+  .msg p {
+    font-size: 12px;
+  }
+}
+
+@media(max-width: 760px) {
+  h1 {
+    font-size: 30px;
+  }
+}
+@media(max-width: 650px) {
+  #content {
+    width: calc(100% - 220px);
+  }
+  #content p {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  #msgDiv {
+    min-width: 125px;
+
+  }
+
+}
+
+@media (max-height: 700px) {
+
+  .msg {
+    height: 80px;
+    font-size: 16px;
+  }
 }
