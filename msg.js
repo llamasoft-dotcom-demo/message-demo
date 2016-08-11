@@ -4,18 +4,34 @@ var loopHandle = null;
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
 messageSystem = {
+    FADEOUT_DELAY : 3000,
     counter : 0,
     messages : new Array(),
 
     showMessage : function(text) {
+        // add new message object
         var msg = {
             id : "msg-"+ messageSystem.counter++,
             text : text,
         }
         messageSystem.messages.push(msg);
+        // create the ui
         messageSystem.addMessageToUI(msg);
+        // schedule form fade out
+        messageSystem.triggerFadeOut(msg.id);
     },
-
+    
+    triggerFadeOut : function(id) {
+        // 
+        setTimeout(function() {
+            messageSystem.removeMessageFromUI(id);
+        }, messageSystem.FADEOUT_DELAY);
+    },
+    
+    removeMessageFromUI: function(id) {
+        $("#"+id).fadeOut("slow");
+    },
+    
     addMessageToUI: function(msg) {
         $template = $("#message-template").clone();
         $template.attr("id", msg.id);
