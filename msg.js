@@ -22,7 +22,7 @@ messageSystem = {
     },
     
     triggerFadeOut : function(id) {
-        // 
+        // needs a wrapping closure/method, otherwise the id is always the same 
         setTimeout(function() {
             messageSystem.removeMessageFromUI(id);
         }, messageSystem.FADEOUT_DELAY);
@@ -50,7 +50,7 @@ function showMsg() {
             "You're gonna need a bigger boat.",
             "Tell Mike it was only business.",
             "I have come here to chew bubble gum and kick ass, and I'm all out of bubble gum." ];
-    messageSystem.showMessage(_.sample(quotes));
+    messageSystem.showMessage(quotes[Math.floor(Math.random() * quotes.length)]);
 
 }
 
