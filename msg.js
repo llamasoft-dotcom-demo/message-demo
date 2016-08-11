@@ -11,27 +11,27 @@ messageSystem = {
     showMessage : function(text) {
         // add new message object
         var msg = {
-            id : "msg-"+ messageSystem.counter++,
+            id : "msg-"+ messageSystem.counter,
+            index : messageSystem.counter,
             text : text,
         }
+        messageSystem.counter++;
         messageSystem.messages.push(msg);
         // create the ui
         messageSystem.addMessageToUI(msg);
         // schedule form fade out
-        messageSystem.triggerFadeOut(msg.id);
+        messageSystem.removeMessageFromUI(msg);
     },
     
-    triggerFadeOut : function(id) {
-        // needs a wrapping closure/method, otherwise the id is always the same 
-        setTimeout(function() {
-            messageSystem.removeMessageFromUI(id);
-        }, messageSystem.FADEOUT_DELAY);
+    removeMessageFromUI : function(msg) {
+        $("#"+msg.id)
+            .delay(2000)
+            .queue(function() {
+                // TODO: decide if the msg should fade out
+                $(this).dequeue();
+            }).fadeOut("slow");
     },
-    
-    removeMessageFromUI: function(id) {
-        $("#"+id).fadeOut("slow");
-    },
-    
+   
     addMessageToUI: function(msg) {
         $template = $("#message-template").clone();
         $template.attr("id", msg.id);
@@ -61,6 +61,7 @@ function loop() {
 }
 
 $(function() {
+    
     $('#msgButton').click(function() {
         var btn = $(this), btnTxt = btn.text();
         if (btnTxt === 'Start Messages') {
@@ -72,4 +73,6 @@ $(function() {
             loopHandle = null;
         }
     });
+    
+    
 });
