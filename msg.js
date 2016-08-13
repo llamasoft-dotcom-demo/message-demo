@@ -19,12 +19,13 @@ messageSystem = {
         
     },
 
-    showMessage : function(text) {
+    showMessage : function(text, custom) {
         // add new message object
         var msg = {
             id : "msg-"+ messageSystem.counter,
             index : messageSystem.counter,
             pinned : false,
+            custom : custom,
             text : text,
         }
         messageSystem.counter++;
@@ -60,7 +61,7 @@ messageSystem = {
     
     initUI: function() {
         
-        $( "#msg-panel" ).on( "click", ".close", function() {
+        $( "#msg-panel" ).on( "click", ".delete", function() {
             var $alert = $(this).parent();
             var id = $alert.attr("id")
             messageSystem.removeMessage(id);
@@ -100,7 +101,11 @@ messageSystem = {
         $template = $("#message-template").clone();
         $template.attr("id", msg.id);
         $template.find(".message-text").html(msg.text);
-        $template.appendTo(".panel-body");
+        $template.appendTo("#msg-panel .panel-body");
+        if (msg.custom) {
+            $template.removeClass("alert-info");
+            $template.addClass("alert-success");
+        }
     }
 }
 
@@ -132,17 +137,21 @@ $(function() {
         var btn = $(this), btnTxt = btn.text();
         if (btnTxt === 'Start Messages') {
             btn.text('Stop Messages');
-            btn.addClass("btn-danger");
-            btn.removeClass("btn-success");
             loopHandle = setTimeout(loop, 500);
         } else {
             btn.text('Start Messages');
-            btn.removeClass("btn-danger");
-            btn.addClass("btn-success");
             clearTimeout(loopHandle);
             loopHandle = null;
         }
+        btn.toggleClass("btn-danger");
+        btn.toggleClass("btn-success");
     });
     
+    
+    $('#addButton').click(function(e) {
+        var $input = $("#messageForm #text");
+        messageSystem.showMessage($input.val(), true);
+        $input.val("");
+    });    
     
 });
