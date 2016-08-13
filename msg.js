@@ -1,18 +1,30 @@
-var loopHandle = null;
+var loopHandle = null,
+FADEOUT_DELAY = 3000;
 
 // The messageSystem object is where you should do all of your work
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
 messageSystem = {
-    FADEOUT_DELAY : 3000,
+        
+    delay : 0,
     counter : 0,
-    messages : new Array(),
+    messages : null,
+    
+    init : function(delay) {
+        messageSystem.delay = delay;
+        messageSystem.counter = 0;
+        messageSystem.messages = new Array();
+        
+        messageSystem.initUI();
+        
+    },
 
     showMessage : function(text) {
         // add new message object
         var msg = {
             id : "msg-"+ messageSystem.counter,
             index : messageSystem.counter,
+            pinned : false,
             text : text,
         }
         messageSystem.counter++;
@@ -32,15 +44,55 @@ messageSystem = {
           id: id
         }));    
     },
+
+    getMessage : function(id) {
+        return  _.findWhere(messageSystem.messages, {
+          id: id
+        });   
+    },
+    
+    togglePinMessage : function(id) {
+        var msg = messageSystem.getMessage(id);  
+        if (msg != undefined) {
+            msg.pinned = !msg.pinned;
+        }
+    },
+    
+    initUI: function() {
+        
+        $( "#msg-panel" ).on( "click", ".close", function() {
+            var $alert = $(this).parent();
+            var id = $alert.attr("id")
+            messageSystem.removeMessage(id);
+            $(this).parent().remove();
+        });    
+        
+        $( "#msg-panel" ).on( "click", ".pin", function() {
+            var $alert = $(this).parent();
+            var id = $alert.attr("id")
+            var msg = messageSystem.getMessage(id);  
+            // remove, if the user removes the pin
+            if (msg != undefined && msg.pinned) {
+                messageSystem.removeMessage(msg.id);
+                $(this).parent().remove();
+            }         
+            messageSystem.togglePinMessage(id);
+            $(this).find(".glyphicon").toggleClass("glyphicon-star-empty");
+            $(this).find(".glyphicon").toggleClass("glyphicon-star");
+        });         
+    },
     
     removeMessageFromUI : function(msg) {
         $("#"+msg.id)
-            .delay(2000)
+            .delay(messageSystem.delay)
             .queue(function() {
-                // TODO: decide if the msg should fade out
-                messageSystem.removeMessage(msg.id);
-                $(this).dequeue();
-                
+                // only continue with non pinned msg
+                if (!msg.pinned) {
+                    // remove from list
+                    messageSystem.removeMessage(msg.id);
+                    // trigger next queue
+                    $(this).dequeue();
+                } 
             }).fadeOut("slow");
     },
    
@@ -68,11 +120,13 @@ function showMsg() {
 
 function loop() {
     showMsg();
-    var rand = Math.round(Math.random() * (3000 - 500)) + 500;
+    var rand = Math.round(Math.random() * (FADEOUT_DELAY - 500)) + 500;
     loopHandle = setTimeout(loop, rand);
 }
 
 $(function() {
+    
+    messageSystem.init(FADEOUT_DELAY);
     
     $('#msgButton').click(function() {
         var btn = $(this), btnTxt = btn.text();
@@ -91,14 +145,4 @@ $(function() {
     });
     
     
-    $( "#msg-panel" ).on( "click", ".close", function() {
-        var $alert = $(this).parent();
-        var id = $alert.attr("id")
-        messageSystem.removeMessage(id);
-        $(this).parent().remove();
-    });    
-    
-    $( "#msg-panel" ).on( "click", ".pin", function() {
-        console.log( $( this ).text() );
-    });   
 });
