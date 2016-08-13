@@ -17,10 +17,20 @@ messageSystem = {
         }
         messageSystem.counter++;
         messageSystem.messages.push(msg);
+        
         // create the ui
         messageSystem.addMessageToUI(msg);
+        
         // schedule form fade out
         messageSystem.removeMessageFromUI(msg);
+    },
+    
+    
+    removeMessage : function(id) {
+        // find and remove the message
+        messageSystem.messages = _.without(messageSystem.messages, _.findWhere(messageSystem.messages, {
+          id: id
+        }));    
     },
     
     removeMessageFromUI : function(msg) {
@@ -28,7 +38,9 @@ messageSystem = {
             .delay(2000)
             .queue(function() {
                 // TODO: decide if the msg should fade out
+                messageSystem.removeMessage(msg.id);
                 $(this).dequeue();
+                
             }).fadeOut("slow");
     },
    
@@ -50,7 +62,7 @@ function showMsg() {
             "You're gonna need a bigger boat.",
             "Tell Mike it was only business.",
             "I have come here to chew bubble gum and kick ass, and I'm all out of bubble gum." ];
-    messageSystem.showMessage(quotes[Math.floor(Math.random() * quotes.length)]);
+    messageSystem.showMessage(_.sample(quotes));
 
 }
 
@@ -66,13 +78,27 @@ $(function() {
         var btn = $(this), btnTxt = btn.text();
         if (btnTxt === 'Start Messages') {
             btn.text('Stop Messages');
+            btn.addClass("btn-danger");
+            btn.removeClass("btn-success");
             loopHandle = setTimeout(loop, 500);
         } else {
             btn.text('Start Messages');
+            btn.removeClass("btn-danger");
+            btn.addClass("btn-success");
             clearTimeout(loopHandle);
             loopHandle = null;
         }
     });
     
     
+    $( "#msg-panel" ).on( "click", ".close", function() {
+        var $alert = $(this).parent();
+        var id = $alert.attr("id")
+        messageSystem.removeMessage(id);
+        $(this).parent().remove();
+    });    
+    
+    $( "#msg-panel" ).on( "click", ".pin", function() {
+        console.log( $( this ).text() );
+    });   
 });
