@@ -50,7 +50,7 @@ messageSystem = {
         // create the ui
         messageSystem.addMessageToUI(msg);
         
-        // schedule form fade out
+        // schedule for fade out
         messageSystem.removeMessageFromUI(msg);
     },
     
