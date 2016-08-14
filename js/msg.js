@@ -1,5 +1,8 @@
+// handle for setTimeout()
 var loopHandle = null,
-FADEOUT_DELAY = 3000;
+
+// constants for fade out
+FADEOUT_DELAY = 3000,
 FADEOUT_VARIATION = 500;
 
 /**
@@ -11,6 +14,7 @@ messageSystem = {
         
     delay : -1,
     counter : -1,
+    running : false,
     messages : null,
     
     /**
@@ -72,6 +76,21 @@ messageSystem = {
     },
 
     /**
+     * Toggles the start/stop state.
+     */
+    toggleRunning : function() {
+        messageSystem.running = !messageSystem.running;
+        messageSystem.toggleRunningIndicatorUI();
+    },
+    
+    /**
+     * Returns the running state.
+     */
+    isRunning : function() {
+        return messageSystem.running;
+    },
+    
+    /**
      * Toggles the pinned property of a message.
      * @param {string} id - Id of the message.
      */
@@ -111,6 +130,13 @@ messageSystem = {
             $(this).find(".glyphicon").toggleClass("glyphicon-star-empty");
             $(this).find(".glyphicon").toggleClass("glyphicon-star");
         });         
+    },
+    
+    /**
+     * Toggles the progress bar UI.
+     */
+    toggleRunningIndicatorUI : function() {
+        $("#msg-panel .progress").toggleClass("hidden");
     },
     
     /**
@@ -188,17 +214,18 @@ $(function() {
     
     $('#msgButton').click(function() {
         var btn = $(this), btnTxt = btn.text();
-        if (btnTxt === 'Start Messages') {
-            btn.text('Stop Messages');
+        if (!messageSystem.isRunning()) {
+            btn.text('Stop');
             loopHandle = setTimeout(loop, FADEOUT_VARIATION);
         } else {
-            btn.text('Start Messages');
+            btn.text('Start');
             clearTimeout(loopHandle);
             loopHandle = null;
         }
+        messageSystem.toggleRunning();
+        
         btn.toggleClass("btn-danger");
         btn.toggleClass("btn-success");
-        $(".progress").toggleClass("hidden");
     });
     
     
