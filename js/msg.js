@@ -94,7 +94,9 @@ messageSystem = {
                     // trigger next queue
                     $(this).dequeue();
                 } 
-            }).fadeOut("slow");
+            }).fadeOut("slow",function() { 
+                $(this).remove();
+            });
     },
    
     addMessageToUI: function(msg) {
@@ -145,6 +147,7 @@ $(function() {
         }
         btn.toggleClass("btn-danger");
         btn.toggleClass("btn-success");
+        $(".progress").toggleClass("hidden");
     });
     
     

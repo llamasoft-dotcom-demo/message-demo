@@ -29,20 +29,11 @@ html {
 	overflow-y: scroll;
 }
 
-button.pin {
-    -webkit-appearance: none;
-    padding: 0;
-    cursor: pointer;
-    background: 0 0;
-    border: 0;
-    color: #fff;
-    text-decoration: none;
-    opacity: .4;
+.alert button {
+	padding-left: 8px;
 }
 
-.pin {
-    float: right;
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 1;
+.progress {
+	margin-bottom: 0;
+	margin-right: 15px;
 }
