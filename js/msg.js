@@ -150,6 +150,10 @@ messageSystem = {
     }
 }
 
+/**
+ * Get one random message String and hands it over the 
+ * the messageSystem.
+ */
 function showMsg() {
     quotes = [
             "What we've got here is failure to communicate.",
@@ -164,12 +168,20 @@ function showMsg() {
 
 }
 
+/**
+ * Function that is call on setTimeout().
+ * Will add a new message and triggers itself again 
+ * after FADEOUT_DELAY +/- FADEOUT_VARIATION millis.
+ */
 function loop() {
     showMsg();
     var rand = Math.round(Math.random() * (FADEOUT_DELAY - FADEOUT_VARIATION)) + FADEOUT_VARIATION;
     loopHandle = setTimeout(loop, rand);
 }
 
+/**
+ * DOM ready callback.
+ */
 $(function() {
     
     messageSystem.init(FADEOUT_DELAY);
