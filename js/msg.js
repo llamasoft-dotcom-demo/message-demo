@@ -1,15 +1,22 @@
 var loopHandle = null,
 FADEOUT_DELAY = 3000;
+FADEOUT_VARIATION = 500;
 
-// The messageSystem object is where you should do all of your work
-// Use any combination of javascript, HTML and CSS that you feeling
-// is appropriate
+/**
+ * This object handles incoming messages and displays them in the UI. 
+ * On startup please call the init() method. New messages can be added 
+ * by calling showMessage().
+ */
 messageSystem = {
         
-    delay : 0,
-    counter : 0,
+    delay : -1,
+    counter : -1,
     messages : null,
     
+    /**
+     * Initializes the object.
+     * @param {int} delay - Millis before removing an message.
+     */
     init : function(delay) {
         messageSystem.delay = delay;
         messageSystem.counter = 0;
@@ -19,6 +26,11 @@ messageSystem = {
         
     },
 
+    /**
+     * Adds a new message.
+     * @param {string} text - Content of the new message.
+     * @param {boolean} custom - Marks a new message as manually generated .
+     */
     showMessage : function(text, custom) {
         // add new message object
         var msg = {
@@ -38,7 +50,10 @@ messageSystem = {
         messageSystem.removeMessageFromUI(msg);
     },
     
-    
+    /**
+     * Removes a message from the object but not from the UI.
+     * @param {string} id - Id of the message.
+     */
     removeMessage : function(id) {
         // find and remove the message
         messageSystem.messages = _.without(messageSystem.messages, _.findWhere(messageSystem.messages, {
@@ -46,12 +61,20 @@ messageSystem = {
         }));    
     },
 
+    /**
+     * Returns a message for the given id.
+     * @param {string} id - Id of the message.
+     */
     getMessage : function(id) {
         return  _.findWhere(messageSystem.messages, {
           id: id
         });   
     },
-    
+
+    /**
+     * Toggles the pinned property of a message.
+     * @param {string} id - Id of the message.
+     */
     togglePinMessage : function(id) {
         var msg = messageSystem.getMessage(id);  
         if (msg != undefined) {
@@ -59,6 +82,13 @@ messageSystem = {
         }
     },
     
+    
+    // UI methods go below the line
+    
+    
+    /**
+     * Adds the click listeners to the UI.
+     */
     initUI: function() {
         
         $( "#msg-panel" ).on( "click", ".delete", function() {
@@ -72,7 +102,7 @@ messageSystem = {
             var $alert = $(this).parent();
             var id = $alert.attr("id")
             var msg = messageSystem.getMessage(id);  
-            // remove, if the user removes the pin
+            // remove, if the user unchecks the pin
             if (msg != undefined && msg.pinned) {
                 messageSystem.removeMessage(msg.id);
                 $(this).parent().remove();
@@ -83,6 +113,10 @@ messageSystem = {
         });         
     },
     
+    /**
+     * Triggers UI fade out for the given message.
+     * @param {object} message - The message to be removed.
+     */
     removeMessageFromUI : function(msg) {
         $("#"+msg.id)
             .delay(messageSystem.delay)
@@ -98,7 +132,12 @@ messageSystem = {
                 $(this).remove();
             });
     },
-   
+    
+    
+    /**
+     * Adds a new message to the UI using the a template markup.
+     * @param {object} message - The message to be added.
+     */   
     addMessageToUI: function(msg) {
         $template = $("#message-template").clone();
         $template.attr("id", msg.id);
@@ -127,7 +166,7 @@ function showMsg() {
 
 function loop() {
     showMsg();
-    var rand = Math.round(Math.random() * (FADEOUT_DELAY - 500)) + 500;
+    var rand = Math.round(Math.random() * (FADEOUT_DELAY - FADEOUT_VARIATION)) + FADEOUT_VARIATION;
     loopHandle = setTimeout(loop, rand);
 }
 
@@ -139,7 +178,7 @@ $(function() {
         var btn = $(this), btnTxt = btn.text();
         if (btnTxt === 'Start Messages') {
             btn.text('Stop Messages');
-            loopHandle = setTimeout(loop, 500);
+            loopHandle = setTimeout(loop, FADEOUT_VARIATION);
         } else {
             btn.text('Start Messages');
             clearTimeout(loopHandle);

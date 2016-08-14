@@ -1,3 +1,5 @@
+/* ---- common body and footer styles ---- */
+
 body {
     margin-bottom: 40px;
     margin-top: 80px;
@@ -20,20 +22,21 @@ html {
 	padding-top: 10px;
 }
 
-/*
- panel styles 
-*/
+/* ---- incoming message panel styles ---- */
 
 #msg-panel .panel-body{
 	height: 300px;
 	overflow-y: scroll;
 }
 
-.alert button {
-	padding-left: 8px;
-}
-
 .progress {
 	margin-bottom: 0;
 	margin-right: 15px;
 }
+
+/* ---- message alert styles ---- */
+
+.alert button {
+	padding-left: 8px;
+}
+
