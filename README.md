@@ -1,3 +1,3 @@
 # message-demo
-Sample project for Llamasoft challenge
+Sample project for LLamasoft challenge
 
