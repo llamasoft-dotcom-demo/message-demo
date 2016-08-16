@@ -1,2 +1,3 @@
 # message-demo
-Sample project for prospects
+Sample project for LLamasoft challenge
+
