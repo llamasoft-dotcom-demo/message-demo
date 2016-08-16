@@ -1,43 +1,102 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Message Sample</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Message Sample | Kathleen Dergis</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">       
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-        <script src="msg.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="snap.svg-min.js"></script>  
+        <script src="msg.js"></script>       
         <link href="msg.css" rel="stylesheet">
-        </head>
-        <body>
-            <h1>LLamasoft Message Exercise
-            </h1>
-
-            <div>
-
-                <p>
-                Implement a messaging system to replace the random alert boxes that come up. The messaging system
-                should meet the following criteria
-                <ul>
-                <li>Messages should appear near the top of the page</li>
-                <li>Messages should fade out after 3 seconds</li>
-                <li>If a new message appears before the previous message fades out, it should appear below the most recent visible message.</li>
-                <li>Messages should have a close or delete box to dismiss the message before the fade out</li>
-                </ul>
-                </p>
-                
-                <p>
-                In addition to the above features, implement other updates you think might be helpful. E.g. Add an indicator
-                to let the user know that the messages are running in addition to the text change on the button, update the
-                layout to make the page more readable, etc. Feel free to use
-                any third party libraries you find helpful. jQuery and underscore are already referenced.
-                </p>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->       
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                  <div class="navbar-brand navbar-right">Kathleen Dergis</div>
+                </div>
+                <div class="collapse navbar-collapse" id="#exercise-link">              
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#challenge">LLamasoft Message Exercise</a></li> 
+                            
+                    </ul>
+                </div>
             </div>
+        </div>
+        
+        <div class="jumbotron">
+          <div class="container">
+            <h1>Behold the Power</h1>
+            <p>Since 1950, The Magic 8-Ball&#8482; has answered our greatest questions. What's on your mind?</p>
+            <p><a id="msgButton" class="btn btn-primary btn-lg" href="#" role="button">Get Answers</a></p>
+          </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-4">
+                    
+                   <div class="row">
+                       <div class="col-md-12">
+                           <svg id="mySvg"></svg>
+                       </div>
+                    </div>                  
+                </div>
+            </div>
+        </div>
+      
+        <div class="container-fluid challenge">
+            <div class="container">
+                <div class="row">
+                    <div id="challenge" class="col-sm-8 col-sm-offset-2 panel-overlay">
+                        <h1>LLamasoft Message Exercise</h1>
+                        <span class="glyphicon glyphicon-tower"></span>
+                        <h3>Take The Challenge</h3>
+                        <p>Implement a messaging system to replace the random alert boxes that initially appear.</p>
+                        <p>Feel free to use any third party libraries you find helpful. jQuery and underscore are already referenced.</p>
+                    </div>
+                </div>
+            </div>           
+        </div>
+        
+        <div class="container requirements">    
+            <div class="row">
+                <div class="col-md-4 col-md-offset-1">
+                    <span class="glyphicon glyphicon-list-alt"></span>
+                    <h3>Requirements</h3>
+                    <p> The messaging system should meet the following criteria:</p>
+                    <ul>
+                        <li>Messages should appear near the top of the page</li>
+                        <li>Messages should fade out after 3 seconds</li>
+                        <li>If a new message appears before the previous message fades out, it should appear below the most recent visible message.</li>
+                        <li>Messages should have a close or delete box to dismiss the message before the fade out.</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-md-offset-2">
+                     <span class="glyphicon glyphicon-plus"></span>
+                    <h3>Bonus</h3>
+                    <p>In addition to the above features, implement other updates you think might be helpful. E.g.:</p>
+                    <ul>
+                        <li>Add a secondary indicator to let the user know that messages are running (in addition to the text change on the button)</li>
+                        <li>Update the layout to make the page more readable, etc.</li>
+                    </ul>
+                    
+                </div>    
+            </div>
+        </div>
+        <footer>
+            <p>&copy; LLamasoft 2016</p>
+        </footer>     
+    </body>
+</html>
 
-            <div>
-            <button type="button" id="msgButton">Start Messages</button>
-            </div>
-            
-            <div class="footer">
-                <span>&copy; LLamasoft 2016</span>
-            </div>
-        </body>
-    </html>
