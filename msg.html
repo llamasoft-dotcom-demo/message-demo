@@ -11,7 +11,12 @@
             <h1>LLamasoft Message Exercise
             </h1>
 
-            <div>
+            <div class="p_body js__p_body js__fadeout"></div>
+           	<div class="popup js__popup js__slide_top"> 
+           		<a href="#" class="p_close js__p_close" title="Close"> <span></span><span></span> </a>
+           		<div class="p_content">Popup Message</div>
+           	</div>
+           
 
                 <p>
                 Implement a messaging system to replace the random alert boxes that come up. The messaging system
@@ -35,7 +40,12 @@
             <div>
             <button type="button" id="msgButton">Start Messages</button>
             </div>
-            
+<a href="#" class="js__p_start"></a>
+<script type="text/javascript">
+$(function() {
+$(".js__p_start").simplePopup();
+});
+</script>             
             <div class="footer">
                 <span>&copy; LLamasoft 2016</span>
             </div>
