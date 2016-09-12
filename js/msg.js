@@ -1,15 +1,11 @@
 var app = angular.module("message-demo", []);
 
 app.controller("make-messages", function($scope, $timeout){
-  var loopHandle = null;
-  $scope.allMessages = [];
-  //$scope.savedMessages = [];
+  $scope.loopHandle = null;
   $scope.model={
     messageList: [],
     savedMessages: []
   };
-  // $scope.newType = "";
-  // $scope.newMsg = "";
   $scope.msgIndex = 0;
 
   var notificationType = ["calendar", "reminder", "error", "list", "mail"];
@@ -19,40 +15,38 @@ app.controller("make-messages", function($scope, $timeout){
   $scope.messageSystem = {
       showMessage: function(msg) {
         var randType = notificationType[(Math.floor(Math.random() * notificationType.length))];
-        $scope.canISeeTheMessage = true;
+        
         $scope.model.messageList.push({
           randType:randType,
           msg:msg,
-          dex: $scope.msgIndex
+          canISeeTheMessage: true,
+          dex: $scope.msgIndex,
+          goAway: function(context){
+            $timeout(function(){
+              context.message.canISeeTheMessage = false;
+            }, 3000)
+
+          }
         });
+        console.log($scope.msgIndex);
         $scope.msgIndex++;
       },
 
       saveThis: function(context){
-        //$timeout.cancel($scope.threeSeconds);
-        //this works
-        // $(context).parent().appendTo('#saved-reminders');
-        // $scope.canISeeTheMessage = true;
-
-        // console.log($scope.savedMessages);
-        // $scope.newType = angular.element(context).children("#forMessage").attr("ng-class");
-        // $scope.newMsg = angular.element(context).children("p").text();
-
-        // for (var i = 0; i < $scope.model.messageList.length; i++){
-        //   if ($scope.model.messageList[i].dex){
-
-        //   }
-        // }
         var ind = context.message.dex;
-        console.log(ind);
+        var base = $scope.model.messageList[ind];
 
-        $scope.model.savedMessages.push($scope.model.messageList[ind]);
-        console.log($scope.model.savedMessages);
+        $scope.model.savedMessages.push({
+          randType:base.randType,
+          msg:base.msg,
+          dex:base.dex,
+          isViz: true
+        });
       },
 
-      hideMe:function(){
+      hideMe:function(context){
         $timeout(function(){
-          $scope.canISeeTheMessage = false;
+          context.message.canISeeTheMessage = false;
         },3000)
       }       
   }
@@ -79,7 +73,7 @@ app.controller("make-messages", function($scope, $timeout){
   function loop() {
       showMsg();
       var rand = Math.round(Math.random() * (3000 - 500)) + 500;
-      loopHandle = $timeout(loop, rand);
+      $scope.loopHandle = $timeout(loop, rand);
   }
 
 
@@ -91,11 +85,11 @@ app.controller("make-messages", function($scope, $timeout){
         btnTxt = btn.text();
          if (btnTxt === 'Start Messages') {
              btn.text('Stop Messages');
-             loopHandle = $timeout(loop, 500);
+             $scope.loopHandle = $timeout(loop, 500);
          } else {
              btn.text('Start Messages');
-             $timeout.cancel(loopHandle);
-             loopHandle = null;
+             $timeout.cancel($scope.loopHandle);
+             $scope.loopHandle = null;
          }
      });
   });

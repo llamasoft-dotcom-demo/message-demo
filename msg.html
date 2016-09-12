@@ -41,10 +41,10 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div id="saved-reminders">
-                                <div ng-repeat="message in model.savedMessages" ng-show="canISeeTheMessage">
+                                <div ng-repeat="message in model.savedMessages track by message.dex" ng-show="message.isViz" class="sized">
                                     <div ng-class="message.randType" ng-style="myStyle">
                                         <img ng-src="images/{{message.randType}}.png" class="icon">
-                                        <img src="images/x.png" class="x" ng-click="canISeeTheMessage = !canISeeTheMessage" ng-mouseenter="myStyle={'opacity':'0.25'}" ng-mouseleave="myStyle={'opacity':'1'}">
+                                        <img src="images/x.png" class="x" ng-click="message.isViz = !message.isViz" ng-mouseenter="myStyle={'opacity':'0.25'}" ng-mouseleave="myStyle={'opacity':'1'}">
                                         <h3 class="msg-title">New {{message.randType}} alert:</h3>
                                         <p class="msg-text">{{message.msg}}</p>
                                     </div>
@@ -56,10 +56,10 @@
             </div>
         
             <div id="messages">
-                <div ng-repeat="message in model.messageList" ng-show="canISeeTheMessage" ng-hide="messageSystem.hideMe()">
+                <div ng-repeat="message in model.messageList track by message.dex" ng-init="message.goAway(this)" ng-show="message.canISeeTheMessage">
                     <div ng-class="message.randType" ng-style="myStyle">
-                        <img ng-src="images/{{message.randType}}.png" class="icon" ng-click="messageSystem.saveThis(this)" alt="{{message.dex}}">
-                        <img src="images/x.png" class="x" ng-click="canISeeTheMessage = !canISeeTheMessage" ng-mouseenter="myStyle={'opacity':'0.25'}" ng-mouseleave="myStyle={'opacity':'1'}">
+                        <img ng-src="images/{{message.randType}}.png" class="icon" ng-click="messageSystem.saveThis(this)">
+                        <img src="images/x.png" class="x" ng-click="message.canISeeTheMessage = !message.canISeeTheMessage" ng-mouseenter="myStyle={'opacity':'0.25'}" ng-mouseleave="myStyle={'opacity':'1'}">
                         <h3 class="msg-title">New {{message.randType}} alert:</h3>
                         <p class="msg-text">{{message.msg}}</p>
                     </div>
