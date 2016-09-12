@@ -2,42 +2,79 @@
 <html>
     <head>
         <title>Message Sample</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-        <script src="msg.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link href="msg.css" rel="stylesheet">
         </head>
-        <body>
-            <h1>LLamasoft Message Exercise
-            </h1>
+        <body ng-app="message-demo" ng-controller="make-messages">
+            <div class="col-xs-10">
+                <h1>LLamasoft Message Exercise</h1>
+                <div>
+                    <p>
+                    Implement a messaging system to replace the random alert boxes that come up. The messaging system
+                    should meet the following criteria
+                        <ul>
+                            <li>Messages should appear near the top of the page</li>
+                            <li>Messages should fade out after 3 seconds</li>
+                            <li>If a new message appears before the previous message fades out, it should appear below the most recent visible message.</li>
+                            <li>Messages should have a close or delete box to dismiss the message before the fade out</li>
+                        </ul>
+                    </p>
+                    
+                    <p>In addition to the above features, implement other updates you think might be helpful. E.g. Add an indicator to let the user know that the messages are running in addition to the text change on the button, update the layout to make the page more readable, etc. Feel free to use any third party libraries you find helpful. jQuery and underscore are already referenced.</p>
+                </div>
 
-            <div>
-
-                <p>
-                Implement a messaging system to replace the random alert boxes that come up. The messaging system
-                should meet the following criteria
+                <div>
+                <h2>Instructions for Use</h2>
                 <ul>
-                <li>Messages should appear near the top of the page</li>
-                <li>Messages should fade out after 3 seconds</li>
-                <li>If a new message appears before the previous message fades out, it should appear below the most recent visible message.</li>
-                <li>Messages should have a close or delete box to dismiss the message before the fade out</li>
+                    <li>Click the 'Start Messages' button to begin</li>
+                    <li>Click the x icon in the upper right of a notification to cancel it</li>
+                    <li>Click the large icon on the left of the notification to save it to your Saved Messages for future reference</li>
+                    <li>Click the button again to stop the notifications</li>
                 </ul>
-                </p>
-                
-                <p>
-                In addition to the above features, implement other updates you think might be helpful. E.g. Add an indicator
-                to let the user know that the messages are running in addition to the text change on the button, update the
-                layout to make the page more readable, etc. Feel free to use
-                any third party libraries you find helpful. jQuery and underscore are already referenced.
-                </p>
-            </div>
+                <button type="button" id="msgButton">Start Messages</button>
+                <p id="message-reminder">Messages are Running!</p>
+                </div>
 
-            <div>
-            <button type="button" id="msgButton">Start Messages</button>
+                <div>
+                    <h2>My Saved Messages:</h2>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div id="saved-reminders">
+                                <div ng-repeat="message in model.savedMessages track by message.dex" ng-show="message.isViz" class="sized">
+                                    <div ng-class="message.randType" ng-style="myStyle">
+                                        <img ng-src="images/{{message.randType}}.png" class="icon">
+                                        <img src="images/x.png" class="x" ng-click="message.isViz = !message.isViz" ng-mouseenter="myStyle={'opacity':'0.25'}" ng-mouseleave="myStyle={'opacity':'1'}">
+                                        <h3 class="msg-title">New {{message.randType}} alert:</h3>
+                                        <p class="msg-text">{{message.msg}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        
+            <div id="messages">
+                <div ng-repeat="message in model.messageList track by message.dex" ng-init="message.goAway(this)" ng-show="message.canISeeTheMessage">
+                    <div ng-class="message.randType" ng-style="myStyle">
+                        <img ng-src="images/{{message.randType}}.png" class="icon" ng-click="messageSystem.saveThis(this)">
+                        <img src="images/x.png" class="x" ng-click="message.canISeeTheMessage = !message.canISeeTheMessage" ng-mouseenter="myStyle={'opacity':'0.25'}" ng-mouseleave="myStyle={'opacity':'1'}">
+                        <h3 class="msg-title">New {{message.randType}} alert:</h3>
+                        <p class="msg-text">{{message.msg}}</p>
+                    </div>
+                </div>
+            </div>
+        
             
             <div class="footer">
                 <span>&copy; LLamasoft 2016</span>
             </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+            <script src="js/msg.js"></script>
+        <!-- <script src="node_modules/push.js/push.js"></script> -->
         </body>
     </html>
