@@ -30,21 +30,36 @@
 .calendar {
 	background-color: rgba(0, 255, 0, .5);
 }
+.calendar:hover {
+	background-color: rgba(0, 255, 0, 1);
+}
 
 .reminder {
 	background-color: rgba(0, 0, 255, .5);
+}
+.reminder:hover {
+	background-color: rgba(0, 0, 255, 1);
 }
 
 .error {
 	background-color: rgba(255, 0, 0, .5);
 }
+.error:hover {
+	background-color: rgba(255, 0, 0, 1);
+}
 
 .list {
 	background-color: rgba(255, 153, 0, .5);
 }
+.list:hover {
+	background-color: rgba(255, 153, 0, 1);
+}
 
 .mail{
 	background-color: rgba(102, 0, 102, .5);
+}
+.mail:hover {
+	background-color: rgba(102, 0, 102, 1);
 }
 
 .icon {
