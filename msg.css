@@ -1,7 +1,78 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+a {  
+    cursor: pointer;  
+    text-decoration:none;  
+}
+
+.menu {
+	color: #eff1f5;
+	background-color: #4286f4;
+	margin: 0;
+	margin-left: -8px;
+	padding: 0;
+	overflow: hidden;
+	position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.aftermenu {
+	margin-top: 6em;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
     text-align: center;
     width: 99%;
     height: 24px;
+}
+
+/*------------Popup styles --------------*/
+
+#popup_box { 
+    display:none;
+    position:fixed; 
+    height:200px;  
+    width:200px;  
+    background: #fff;  
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -200px;
+    z-index:100;     
+    padding:15px;  
+    font-size:15px;  
+    -moz-box-shadow: 0 0 5px;
+    -webkit-box-shadow: 0 0 5px;
+    box-shadow: 0 0 5px;
+}
+
+#popupBoxClose { 
+    background: #369;
+    color: #fff;
+    padding: 10px;
+    margin: -15px -15px 10px -15px;
+    display: block;
+    position: relative;
+    text-align: right;
+}
+
+#popupBoxClose #countDown {
+    position: absolute;s
+    top: 10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    color: #369;
+    text-align: center;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
 }
