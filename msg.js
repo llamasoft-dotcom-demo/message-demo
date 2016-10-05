@@ -1,18 +1,8 @@
-var loopHandle = null;
-
-// The messageSystem object is where you should do all of your work
-// Use any combination of javascript, HTML and CSS that you feeling
-// is appropriate
-messageSystem = {
-    showMessage: function(msg) {
-        alert(msg);
-    }
-}
-
-
-
-function showMsg() {
-    quotes = [
+// Randomizes the quote selection
+function getQuote() {
+  var randomNumber = Math.floor((Math.random() * 8));
+  console.log(randomNumber);
+  quotes = [
     "What we've got here is failure to communicate.",
     'Go ahead, make my day.',
     "I've got a bad feeling about this.",
@@ -21,29 +11,71 @@ function showMsg() {
     "You're gonna need a bigger boat.",
     "Tell Mike it was only business.",
     "I have come here to chew bubble gum and kick ass, and I'm all out of bubble gum."
-    ];
-    messageSystem.showMessage(_.sample(quotes));
-    
+  ];
+
+  var randomQuote = quotes[randomNumber];
+  document.getElementById("ourRandomQuote").innerHTML = randomQuote;
+}
+
+// Onload will create a new pop-up with random quote
+$(document).ready(function() {
+  new popup($("#popup_box"), $("#container")).load();
+
+});
+
+// Creates pop-up
+function popup(popup, container) {
+
+  var thisPopup = this,
+    timer,
+    counter = 3,
+    countDown = $("#countDown").text(counter.toString());
+
+  thisPopup.load = function() {
+
+    container.animate({
+      "opacity": "0.3"
+    }, 250, function() {
+      popup.fadeIn("250");
+    });
+
+    container.off("click").on("click", function() {
+      thisPopup.unload();
+    });
+
+    $('#popupBoxClose').off("click").on("click", function() {
+      thisPopup.unload();
+    });
+
+    timer = setInterval(function() {
+      counter--;
+      if (counter < 0) {
+        thisPopup.unload();
+      } else {
+        countDown.text(counter.toString());
+      }
+    }, 1000);
+  }
+
+  thisPopup.unload = function() {
+
+    clearInterval(timer);
+
+    popup.fadeOut("250", function() {
+      container.animate({
+        "opacity": "1"
+      }, 250);
+    });
+  }
 }
 
 function loop() {
-    showMsg();
-    var rand = Math.round(Math.random() * (3000 - 500)) + 500;
-    loopHandle = setTimeout(loop, rand);
+  showMsg();
+  var rand = Math.round(Math.random() * (3000 - 500)) + 500;
+  loopHandle = setTimeout(loop, rand);
 }
 
-
-$(function() {
-   $('#msgButton').click(function() {
-       var btn = $(this),
-      btnTxt = btn.text();
-       if (btnTxt === 'Start Messages') {
-           btn.text('Stop Messages');
-           loopHandle = setTimeout(loop, 500);
-       } else {
-           btn.text('Start Messages');
-           clearTimeout(loopHandle);
-           loopHandle = null;
-       }
-   } );
-});
+// Reloads the page to get a new pop-up and quote
+function getNewMsg() {
+  location.reload();
+}
