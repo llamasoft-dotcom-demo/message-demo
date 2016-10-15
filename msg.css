@@ -1,7 +1,102 @@
-.footer {
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    width: 99%;
-    height: 24px;
+
+
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from body */
+  background-color: #fff;
+  border: 1px solid #fff;
 }
+
+/* body content */
+html,
+body {
+  background-color: #333;
+  font-family: 'Lucida Console', Monaco, monospace;
+}
+
+/* for overall readability */
+body {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+.shifted-down {
+	margin-top: 200px;
+}
+
+.margin-strip {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.small-top-space {
+	margin-top: 30px;
+}
+
+.small-left-space {
+	margin-left: 30px;
+}
+
+.show-while-running {
+	display: none;
+}
+
+/* Options modal */
+#optionModal {
+	color: black;
+	text-shadow: none; /* Prevent inheritance from `body` */
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* Busy loader */
+.loader {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #5cb85c; /* same color as btn-primary */
+  width: 75px;
+  height: 75px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* Alert styles */
+.alert-llama-messages {
+	background-color: rgb(241, 242, 240);
+	border-color: rgba(149, 149, 149, 0.3);
+	border-radius: 3px;
+	color: rgb(72, 69, 69);
+	padding: 10px;
+}
+
+.alert-llama-messages > [data-notify="icon"] {
+	height: 50px;
+	margin-right: 12px;
+}
+
+.alert-llama-messages > [data-notify="title"] {
+	display: block;
+	margin-bottom: 5px;
+	color: #333333;
+	font-weight: bold;
+}
+
+.alert-llama-messages > [data-notify="message"] {
+	font-size: 80%;
+}
+
