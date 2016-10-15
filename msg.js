@@ -39,8 +39,8 @@ function fireMessage(message) {
 	{
 		element: "body",
 		position: null,
-		delay: 2000,
-		timer: 2000,
+		delay: 1500,
+		timer: 500,
 		allow_dismiss: messageSystem.parameters.allowDismiss,
 		placement: {
 			from: messageSystem.parameters.fromOption,
@@ -52,7 +52,7 @@ function fireMessage(message) {
 		},
 		type: "llama-messages",
 		icon_type: "image",
-		/* NOTE: template is a modified version of one found here http://bootstrap-notify.remabledesigns.com/ */
+		/* NOTE: this template is a modified version of one found here http://bootstrap-notify.remabledesigns.com/ */
 		template:
 			"<div data-notify='container' class='col-xs-11 col-sm-3 alert alert-{0}' role='alert'>" +
 				"<button type='button' aria-hidden='true' class='close' data-notify='dismiss' style='position: absolute; right: 10px; top: 5px; z-index: 1033;'>×</button>" +

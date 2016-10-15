@@ -41,8 +41,8 @@ Also the Start Messages button not only changes text but changes color as well.
 
 
 Improvements that could be made:
-- Better layout when the screen is smaller.
+- Better responsive design.
 - Better color scheme. The home page could definitely look better.
-- Find a template framework to use so you can separate HTML files
+- Find a template framework to separate HTML files
 
-If I were to do this again I would do it using AngularJS. 
+If I were to do this again I would do it using AngularJS.
