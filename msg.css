@@ -5,3 +5,11 @@
     width: 99%;
     height: 24px;
 }
+
+.toast-info {
+  background-color: #1495DC; /* LLamasoft Button Blue */ 
+}
+
+body {
+  margin: 10px;
+}
