@@ -13,7 +13,7 @@
     "prestart:fontsWoff2": "copy .\\node_modules\\bootstrap\\dist\\fonts\\glyphicons-halflings-regular.woff2 .\\fonts\\",
     "prestart:fontsWoff": "copy .\\node_modules\\bootstrap\\dist\\fonts\\glyphicons-halflings-regular.woff .\\fonts\\",
     "prestart:fontsTtf": "copy .\\node_modules\\bootstrap\\dist\\fonts\\glyphicons-halflings-regular.ttf .\\fonts\\",
-    "prestart:fonts": "prestart:createFontsDir && npm run prestart:fontsWoff2 && npm run prestart:fontsWoff && npm run prestart:fontsTtf",
+    "prestart:fonts": "npm run prestart:createFontsDir && npm run prestart:fontsWoff2 && npm run prestart:fontsWoff && npm run prestart:fontsTtf",
     "prestart": "npm run prestart:css && npm run prestart:jss && npm run prestart:fonts",
     "start": "http-server -o"
   },
