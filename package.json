@@ -1,0 +1,39 @@
+{
+  "name": "message-demo",
+  "version": "1.0.0",
+  "description": "This is a Llamasoft excercise implementing a messaging system.",
+  "main": "msg.html",
+  "scripts": {
+    "test": "jasmine",
+    "prestart:cssmap": "copy .\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css.map .\\css\\",
+    "prestart:cssmin": "copy .\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css .\\css\\",
+    "prestart:css": "npm run prestart:cssmap && npm run prestart:cssmin",
+    "prestart:jss": "copy .\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js .\\js\\",
+    "prestart:fontsWoff2": "copy .\\node_modules\\bootstrap\\dist\\fonts\\glyphicons-halflings-regular.woff2 .\\fonts\\",
+    "prestart:fontsWoff": "copy .\\node_modules\\bootstrap\\dist\\fonts\\glyphicons-halflings-regular.woff .\\fonts\\",
+    "prestart:fontsTtf": "copy .\\node_modules\\bootstrap\\dist\\fonts\\glyphicons-halflings-regular.ttf .\\fonts\\",
+    "prestart:fonts": "npm run prestart:fontsWoff2 && npm run prestart:fontsWoff && npm run prestart:fontsTtf",
+    "prestart": "npm run prestart:css && npm run prestart:jss && npm run prestart:fonts",
+    "start": "http-server -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mark-Jazayeri/message-demo.git"
+  },
+  "keywords": [
+    "Llamasoft",
+    "Message",
+    "Excercise"
+  ],
+  "author": "Mark Jazayeri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mark-Jazayeri/message-demo/issues"
+  },
+  "homepage": "https://github.com/Mark-Jazayeri/message-demo#readme",
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "copyfiles": "^1.0.0",
+    "http-server": "^0.9.0",
+  }
+}
