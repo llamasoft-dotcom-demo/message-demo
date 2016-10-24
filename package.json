@@ -34,7 +34,6 @@
   "homepage": "https://github.com/Mark-Jazayeri/message-demo#readme",
   "devDependencies": {
     "bootstrap": "^3.3.7",
-    "copyfiles": "^1.0.0",
     "http-server": "^0.9.0"
   }
 }
