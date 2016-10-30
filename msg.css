@@ -5,3 +5,9 @@
     width: 99%;
     height: 24px;
 }
+
+#generatingMessages {
+    display: inline-block;
+    padding-left: 2em;
+    color: midnightblue;
+}
