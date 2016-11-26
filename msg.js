@@ -5,11 +5,28 @@ var loopHandle = null;
 // is appropriate
 messageSystem = {
     showMessage: function(msg) {
-        alert(msg);
+        $("dialog").append(
+            $('<div class="message"> <div class="exitMsg">X</div> ' + msg + '</div>')
+                .hide()
+                .fadeIn()
+                .delay(3000)
+                .fadeOut()
+                .detach()
+
+        );
+    },
+    showMessage: function(msg, type) {
+        $("dialog").append(
+            $('<div class="message '+ type +'-msg "> <div class="exitMsg">X</div> ' + msg + '</div>')
+                .hide()
+                .fadeIn()
+                .delay(3000)
+                .fadeOut()
+                .detach()
+
+        );
     }
 }
-
-
 
 function showMsg() {
     quotes = [
@@ -34,16 +51,26 @@ function loop() {
 
 
 $(function() {
+   $('.spinner').hide();
+
    $('#msgButton').click(function() {
        var btn = $(this),
       btnTxt = btn.text();
        if (btnTxt === 'Start Messages') {
            btn.text('Stop Messages');
+           $('#msgButton').css('background-color', "#924141");
+           $('.spinner').fadeIn();
            loopHandle = setTimeout(loop, 500);
        } else {
            btn.text('Start Messages');
+           $('#msgButton').css('background-color', '#419244');
+           $('.spinner').fadeOut();
            clearTimeout(loopHandle);
            loopHandle = null;
        }
    } );
+
+   $('dialog').on('click', '.exitMsg', function(){
+       $(this).parent().detach();
+    });
 });

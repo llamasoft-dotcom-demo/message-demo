@@ -1,7 +1,46 @@
-.footer {
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    width: 99%;
-    height: 24px;
+dialog {
+    position:absolute;
+    top:10vh;
+    display: inline-block;
+    border: none;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.message {
+    margin: 10px;
+    width: 250px;
+    padding: 15px;
+    box-shadow: 0 0 15px #888888;
+    border-radius: 3px;
+}
+
+.success-msg {
+    color: #027d01;
+    background-color: #b1f9c3;
+}
+
+.failure-msg {
+    color: #7d0201;
+    background-color: #f9b1b1;
+}
+
+.info-msg {
+    color: #01207d;
+    background-color: #b1cff9;
+}
+
+.warning-msg {
+    color: #7d0167;
+    background-color: #f4b1f9;
+}
+
+.exitMsg {
+    position: relative;
+    display: inline-block;
+    left: 250px;
+    top: -15px;
+    font-weight: bolder;
+    color: #924141;
+    cursor: pointer;
 }

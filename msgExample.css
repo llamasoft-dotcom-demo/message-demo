@@ -1,0 +1,118 @@
+body {
+    margin:0;
+    font-family: 'Open Sans', sans-serif;
+    color: #292929;
+    overflow: hidden;
+}
+
+main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+}
+
+details {
+    position: absolute;
+    top: 5px;
+    z-index: 101;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.title {
+    font-size: 16pt;
+    font-weight: 300;
+    padding-left: 25px;
+}
+
+header {
+    top: 0;
+    position: absolute;
+    height: 7vh;
+    width: 100%;
+    box-shadow: 0 0 15px #888888;
+}
+
+footer {
+    height: 3vh;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    box-shadow: 0 0 15px #888888;
+}
+
+.theme-color {
+    background-color: #084c95;
+    color: whitesmoke;
+}
+
+button {
+    background-color: dimgray;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    box-shadow: 0 0 15px #888888;
+    border-radius: 3px;
+}
+
+#msgButton {
+    background-color: #419244;
+    position: absolute;
+    font-family: 'Open Sans', sans-serif;
+    top: 40vh;
+    left: 30px;
+    padding: 75px 30px 75px 30px;
+    border-radius: 100px 100px 100px 100px;
+}
+
+button:hover {
+    background-color: #50b954;
+}
+
+button:focus {
+    outline: none;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 8vh;
+  background-color: #333;
+  border-radius: 100%;  
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
