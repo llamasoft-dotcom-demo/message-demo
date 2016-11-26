@@ -15,7 +15,7 @@ messageSystem = {
 
         );
     },
-    showMessage: function(msg, type) {
+    showMessageType: function(msg, type) {
         $("dialog").append(
             $('<div class="message '+ type +'-msg "> <div class="exitMsg">X</div> ' + msg + '</div>')
                 .hide()
