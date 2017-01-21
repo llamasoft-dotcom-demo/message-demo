@@ -4,10 +4,11 @@ var loopHandle = null;
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
 messageSystem = {
-    showMessage: function(msg) {
-        alert(msg);
+    showMessage: function(msg) {     
+        Notifications.showNotification(msg);
     }
 }
+
 
 
 
@@ -22,6 +23,7 @@ function showMsg() {
     "Tell Mike it was only business.",
     "I have come here to chew bubble gum and kick ass, and I'm all out of bubble gum."
     ];
+    
     messageSystem.showMessage(_.sample(quotes));
     
 }
@@ -42,6 +44,7 @@ $(function() {
            loopHandle = setTimeout(loop, 500);
        } else {
            btn.text('Start Messages');
+           Notifications.turnOffNotifications();
            clearTimeout(loopHandle);
            loopHandle = null;
        }

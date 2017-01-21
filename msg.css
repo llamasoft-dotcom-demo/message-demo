@@ -1,7 +1,53 @@
-.footer {
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    width: 99%;
-    height: 24px;
+/* override toaster settings */
+
+/*touched this*/
+#toast-container > div {
+  position: relative;
+  pointer-events: auto;
+  overflow: hidden;
+  margin: 0 0 6px;
+  padding: 8px 12px 8px 8px;
+  width: 300px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;  
+  background-repeat: no-repeat;
+  -moz-box-shadow: 0 0 12px #999999;
+  -webkit-box-shadow: 0 0 12px #999999;
+  box-shadow: 0 0 12px #999999;
+  color: #FFFFFF;
+  opacity: 0.8;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  filter: alpha(opacity=80);
+}
+
+/*touched this*/
+#toast-container > div.rtl {
+  direction: rtl;
+  padding: 10px 50px 10px 15px;  
+}
+
+/*touched this*/
+#toast-container > .toast-info {
+  background-image: none !important;
+}
+
+/*touched this*/
+#toast-container.toast-top-full-width > div,
+#toast-container.toast-bottom-full-width > div {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*touched this*/
+.toast-info {
+  background-color: #158cba;
+}
+
+
+@media (max-width: 991px) {
+  .logoLlama { 
+    display:none;
+  }
 }
