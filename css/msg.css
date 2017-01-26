@@ -4,11 +4,25 @@ body {
     font-size: 16px;
 }
 h1 {
-    border-bottom: 3px solid black;
+    border-bottom: 2px solid black;
     font-size: 1.5em;
     margin: 20px;
     padding: 10px;
     width: 90%;
+}
+button {
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 2em;
+    margin: 20px;
+    padding: 10px 15px;
+}
+button.start {
+    background: #00b61f;
+}
+button.stop {
+    background: #ff3737;
 }
 #content {
     margin: 10px auto;
@@ -19,7 +33,14 @@ h1 {
     margin: 15px auto;
 }
 #content ul {
-    margin-left: 10px;
+    list-style: square;
+    margin-left: 30px;
+}
+#msgStatus {
+    color: steelblue;
+    display: inline-block;
+    font-size: 1.3em;
+    margin-left: 30px;
 }
 #sidebar {
     float: right;
@@ -29,22 +50,14 @@ h1 {
     right: 10px;
     top: 0;
     width: 400px;
-    z-index: 99;
+    z-index: 98;
 }
-#sidebar .notiClose {
-    border-left: 2px solid white;
-    cursor: pointer;
-    float: right;
-    line-height: 100%;
-    padding: 2px;
-    width: 50px;
-}
-#sidebar .notiTitle {
+#sidebar .msgTitle {
     font-weight: bold;
     font-size: 0.7em;
-    margin-bottom: 10px;
+    margin: -10px 0 10px 0;
 }
-#sidebar .notification {
+#sidebar .msg {
     background: steelblue;
     border: 2px solid grey;
     border-radius: 5px;
@@ -56,13 +69,40 @@ h1 {
     padding: 20px 15px;
     /*transition: opacity 0.3s;*/
 }
-#sidebar .notification:hover {
+#sidebar .msg:hover {
     opacity: 1;
 }
+#sidebar .msg .msgClose {
+    border-left: 2px solid #588ebb;
+    border-bottom: 2px solid #588ebb;
+    border-left: 2px solid #90b4d2;
+    border-bottom: 2px solid #90b4d2;
+    border-radius: 3px;
+    color: #90b4d2;
+    cursor: pointer;
+    font-size: 0.9em;
+    float: right;
+    padding: 7px 10px;
+    position: relative;
+    top: -20px;
+    left: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 99;
+}
+#sidebar .msgClose:hover {
+    color: whitesmoke;
+    transition: color 0.3s;
+}
 .footer {
-    position: absolute;
-    bottom: 0;
     text-align: center;
-    width: 99%;
     height: 24px;
+    margin: 30px auto;
+    width: 99%;
+}
+
+@media screen and (max-width: 700px) {
+
 }
