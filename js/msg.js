@@ -20,8 +20,8 @@ messageSystem = {
         $("#" + msg.id).fadeOut("fast");
     },
     showMessage: function (msg) {
-        this.numReceived++;
-        var msgID = "not" + this.numReceived;
+        messageSystem.numReceived++;
+        var msgID = "not" + messageSystem.numReceived;
         popup = $("<div class='msg' id='" + msgID + "'></div>").append(
             "<div class='msgClose' onclick='messageSystem.closeMessage(this.parentNode)'>Dismiss</div>" +
             "<div class='msgBody'>" +
@@ -32,14 +32,15 @@ messageSystem = {
         popup.fadeIn("slow", function() {
             setTimeout(function () {
                 $("#" + msgID).slideUp("slow");
-            }, 10000);
+            }, 3000);
         });
-        msgStatus.html("Messages Received: " + this.numReceived);
+        msgStatus.html("Messages Received: " + messageSystem.numReceived);
     },
     toggleMessages: function() {
         var btnTxt = msgButton.text();
         if (btnTxt === "Start Messages") {
-            this.numReceived = 0;
+            messageSystem.numReceived = 0;                                     // reset message counter
+            $(".msg").remove();                                                // remove existing messages
             msgButton.text("Stop Messages").attr("class", "stop");
             loopHandle = setTimeout(loop, 500);
         } else {
@@ -66,6 +67,6 @@ $(function () {
 });
 function loop() {
     messageSystem.showMessage(_.sample(quotes));
-    var rand = Math.round(Math.random() * (6000)) + 500;
+    var rand = Math.round(Math.random() * (3000)) + 500;
     loopHandle = setTimeout(loop, rand);
 }

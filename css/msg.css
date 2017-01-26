@@ -67,7 +67,6 @@ button.stop {
     margin: 10px 0;
     opacity: 0.9;
     padding: 20px 15px;
-    /*transition: opacity 0.3s;*/
 }
 #sidebar .msg:hover {
     opacity: 1;
@@ -93,8 +92,9 @@ button.stop {
     z-index: 99;
 }
 #sidebar .msgClose:hover {
+    border-color: whitesmoke;
     color: whitesmoke;
-    transition: color 0.3s;
+    transition: border 0.3s, color 0.3s;
 }
 .footer {
     text-align: center;
