@@ -1,2 +1,3 @@
-# message-demo
-Sample project for prospects
+This project is available on my website
+ 
+ https://ajbrainerd.com/llama/message
