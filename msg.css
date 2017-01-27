@@ -5,3 +5,23 @@
     width: 99%;
     height: 24px;
 }
+
+.button {
+	width:30px;	
+}
+
+h1 {
+    padding-top: 100px;
+	}
+
+body {
+	background-color: #ffdb4d;
+}
+
+p, li {
+	font-style:italic;
+}
+
+
+	
+	
