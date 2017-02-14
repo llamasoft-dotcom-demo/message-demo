@@ -5,3 +5,72 @@
     width: 99%;
     height: 24px;
 }
+
+.messagesContainer {
+	position: fixed;
+	right: 0px;
+	margin-right: 25px;
+}
+
+.messagesContainer .messageBox {
+	height: 100px;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #545478;
+	text-align: center;
+	margin-top: 10px;
+	border-radius: 5px 5px 0 0;
+	color: #FFFFFF;
+	position: relative;
+
+	/**Center message vertically and horizontally within message box*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.messagesContainer .messageBox .closeButton {
+	cursor: pointer;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	margin-top: 3px;
+	margin-right: 3px;
+}
+
+.messagesContainer .messageBox .closeButton2 {
+	cursor: pointer;
+	position: absolute;
+	bottom: 0px;
+	margin-top: 3px;
+	margin-right: 3px;
+}
+
+
+/** The following css was obtained online to create a bar countdown timer. */
+@-webkit-keyframes bar-slide {
+	0%   { width: 100%;   }
+	100% { width: 0%; }
+}
+
+.bar-timer {
+	height: 5px;
+	width: 100%;
+	border: 1px solid #FFFFFF;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+
+.bar-inner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background: #FFFFFF;
+	-webkit-animation-name: bar-slide;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: ease-out;
+}

@@ -4,8 +4,46 @@ var loopHandle = null;
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
 messageSystem = {
+
+    /**
+    * Shows a new message by adding it to the message container.
+    */
     showMessage: function(msg) {
-        alert(msg);
+        var messageElement = this.createMessageBox(msg);
+        $(".messagesContainer").append(messageElement);
+    },
+
+    /**
+    * Removes the provided messageElement from the DOM.
+    */
+    closeMessage: function(messageElement) {
+      messageElement.remove();
+    },
+
+    /**
+    * Creates and returns an message box element that is ready to be displayed.
+    * Also handles setting up events for auto dismissal and manual closing.
+    */
+    createMessageBox: function(msg) {
+      let messageElement = $("<div/>").addClass("messageBox").text(msg);
+      let closeButton = $("<div/>").addClass("closeButton").text("X");
+      let barTimer = "<div class='bar-timer'>" +
+                      "<div class='bar-inner'></div>" +
+                    "</div>"
+      messageElement.append([closeButton, barTimer]);
+
+      closeButton.click(function() {
+        this.closeMessage(messageElement);
+      }.bind(this));
+
+      //After 3 seconds fade out the message and remove it from the DOM
+      setTimeout(function() {
+       messageElement.fadeOut('fast', function() {
+          messageElement.remove();
+       });
+      }, 3000);
+
+      return messageElement;
     }
 }
 
