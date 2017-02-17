@@ -1,15 +1,32 @@
 var loopHandle = null;
-
-// The messageSystem object is where you should do all of your work
-// Use any combination of javascript, HTML and CSS that you feeling
-// is appropriate
+var count=1;
 messageSystem = {
     showMessage: function(msg) {
-        alert(msg);
+        //alert(msg);
+  var divnode = document.createElement("div");//Created a div to show the messages
+  var divcount='divno'+count;              
+  var textnode=document.createTextNode(msg);
+  divnode.appendChild(textnode);
+  divnode.setAttribute('id',divcount);   //setting divcount as ID
+   setTimeout(function(){
+ 		divnode.parentNode.removeChild(divnode);
+ 		},3000);
+    document.body.appendChild(divnode);
+
+    var butnode = document.createElement("button"); 
+    var buttoncount='buttonno'+count;
+    var tnode = document.createTextNode("close");       
+    butnode.appendChild(tnode);
+    butnode.style.backgroundColor="red";
+    butnode.setAttribute('id',buttoncount);
+    divnode.appendChild(butnode);
+    count=count+1;
+ 		 
+$('#'+buttoncount).click(function() {
+ 	  $('#'+divcount).hide();
+    } );
     }
 }
-
-
 
 function showMsg() {
     quotes = [
@@ -38,11 +55,12 @@ $(function() {
        var btn = $(this),
       btnTxt = btn.text();
        if (btnTxt === 'Start Messages') {
+           alert("Messages are about to start");
            btn.text('Stop Messages');
            loopHandle = setTimeout(loop, 500);
        } else {
            btn.text('Start Messages');
-           clearTimeout(loopHandle);
+          clearTimeout(loopHandle);
            loopHandle = null;
        }
    } );
