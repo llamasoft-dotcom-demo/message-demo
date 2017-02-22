@@ -45,17 +45,12 @@ button.stop {
 #sidebar {
     float: right;
     height: 100%;
-    margin-right: 30px;
+    margin-right: 10px;
     position: fixed;
-    right: 10px;
+    right: 0;
     top: 0;
-    width: 400px;
+    width: 300px;
     z-index: 98;
-}
-#sidebar .msgTitle {
-    font-weight: bold;
-    font-size: 0.7em;
-    margin: -10px 0 10px 0;
 }
 #sidebar .msg {
     background: steelblue;
@@ -72,11 +67,9 @@ button.stop {
     opacity: 1;
 }
 #sidebar .msg .msgClose {
-    border-left: 2px solid #588ebb;
-    border-bottom: 2px solid #588ebb;
     border-left: 2px solid #90b4d2;
     border-bottom: 2px solid #90b4d2;
-    border-radius: 3px;
+    border-bottom-left-radius: 3px;
     color: #90b4d2;
     cursor: pointer;
     font-size: 0.9em;
@@ -95,6 +88,14 @@ button.stop {
     border-color: whitesmoke;
     color: whitesmoke;
     transition: border 0.3s, color 0.3s;
+}
+#sidebar .msgTitle {
+    border-bottom: 1px solid #90b4d2;
+    font-weight: bold;
+    font-size: 0.7em;
+    margin: -10px 0 10px 0;
+    padding-bottom: 2px;
+    width: 195px;
 }
 .footer {
     text-align: center;
