@@ -1,14 +1,19 @@
 body {
-    background-color: azure;
+    /*background: azure;*/
+    /*color: white;*/
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 20px;
+    background: #2A4D6B;
+    color: white;
+    /*background: linear-gradient(to left, #606c88 , #3f4c6b);*/
 }
 h1 {
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid currentColor;
     font-size: 1.5em;
-    margin: 20px;
+    margin: 15px auto;
     padding: 10px;
-    width: 90%;
+    text-align: center;
+    width: 400px;
 }
 button {
     border-radius: 10px;
@@ -19,10 +24,10 @@ button {
     padding: 10px 15px;
 }
 button.start {
-    background: #00b61f;
+    background: #b3d68b;
 }
 button.stop {
-    background: #ff3737;
+    background: #c57070;
 }
 #content {
     margin: 10px auto;
@@ -37,7 +42,8 @@ button.stop {
     margin-left: 30px;
 }
 #msgStatus {
-    color: steelblue;
+    color: #FFFE49;
+    /*color: #aad8a6;*/
     display: inline-block;
     font-size: 1.3em;
     margin-left: 30px;
@@ -53,17 +59,20 @@ button.stop {
     z-index: 98;
 }
 #sidebar .msg {
-    background: steelblue;
+    background: #5788b1;
     border: 2px solid grey;
     border-radius: 5px;
-    color: whitesmoke;
+    color: #c7d9e8;
+    cursor: default;
     display: none;
-    font-size: 1em;
+    font-size: 0.8em;
     margin: 10px 0;
     opacity: 0.9;
     padding: 20px 15px;
+    transition: color 0.3s;
 }
 #sidebar .msg:hover {
+    color: white;
     opacity: 1;
 }
 #sidebar .msg .msgClose {
@@ -90,7 +99,7 @@ button.stop {
     transition: border 0.3s, color 0.3s;
 }
 #sidebar .msgTitle {
-    border-bottom: 1px solid #90b4d2;
+    border-bottom: 1px solid currentColor;
     font-weight: bold;
     font-size: 0.7em;
     margin: -10px 0 10px 0;
