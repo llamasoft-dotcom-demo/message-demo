@@ -5,3 +5,28 @@
     width: 99%;
     height: 24px;
 }
+
+.BestFontEver
+{
+    font-family: 'Comic Sans MS';
+    color: Green;
+    font-weight: bold;
+}
+
+.CustomContent
+{
+    height: 75px; 
+    max-height: 75px; 
+    overflow: auto; 
+    width: 80%;
+}
+
+.EnableMsgs
+{
+    border: 3px solid Green;
+}
+
+.DisableMsgs
+{
+    border: 3px solid Red;
+}
