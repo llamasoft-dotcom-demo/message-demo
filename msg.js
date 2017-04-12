@@ -1,13 +1,57 @@
 var loopHandle = null;
+var curIndex = 0;
+var myArray = [];
 
 // The messageSystem object is where you should do all of your work
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
 messageSystem = {
-    showMessage: function(msg) {
-        alert(msg);
+    showMessage: function (msg) {
+        curIndex++;
+        myArray.push(curIndex);
+
+        //create html for message and close early button
+        htmlMsg = "<div id='divMsg" + curIndex + "'>";
+        htmlMsg += "<input id='btnMsg" + curIndex + "' type='button' onclick='messageSystem.hideNow(this.id)' value='X' /> " + msg + "<br />";
+        htmlMsg += "</div>";
+
+        //append the message and close button
+        $("#divParentMsg").append(htmlMsg);
+        
+        //autoscroll to bottom of div
+        $('#divParentMsg').scrollTop($('#divParentMsg')[0].scrollHeight);
+
+        //sets the msg to dissapear after 3 seconds
+        setTimeout(messageSystem.fadeMsgOut, 3000);
+    },
+
+    fadeMsgOut: function () {
+        //fades completely out after 1 second
+        $("#divMsg" + myArray[0]).fadeOut(1000);
+        myArray.shift();
+    },
+
+    hideNow: function (id) {
+        //dissapears immediately
+        var position = id.substring(6, String(id).length);
+        $("#divMsg" + position).hide();
     }
+
 }
+
+$(document).ready(function () {
+    //changes the border indicator
+    $("#msgButton").click(function () {
+        if ($("#msgButton").hasClass("EnableMsgs")) {
+            $("#msgButton").removeClass("EnableMsgs");
+            $("#msgButton").addClass("DisableMsgs");
+        }
+        else {
+            $("#msgButton").addClass("EnableMsgs");
+            $("#msgButton").removeClass("DisableMsgs");
+        }
+    });
+})
 
 
 
