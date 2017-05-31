@@ -5,3 +5,14 @@
     width: 99%;
     height: 24px;
 }
+
+#messages {
+    cursor: pointer;
+    position: fixed;
+    right: 0px;
+    z-index: 9999;
+    top: 0px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 33%;   
+}
