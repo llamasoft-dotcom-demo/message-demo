@@ -1,7 +1,36 @@
-.footer {
+body {
+    margin-top: 3%;
+    position: relative;
+}
+
+.top {
+    text-align: center;
     position: absolute;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.alert.alert-info {
+    margin-left: 14%;
+    margin-right: 14%;
+    width: auto;
+    position: relative;
+    display: block;
+}
+
+.btn.btn-primary {
+    float: right;
+    margin-top: -7px;
+}
+
+.footer {
     bottom: 0;
     text-align: center;
     width: 99%;
-    height: 24px;
 }
+
+
+@media only and (width: )
