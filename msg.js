@@ -7,16 +7,17 @@ messageSystem = {
     showMessage: function(msg) {
         $(".top").css("display", "block");
         var str = "<div class=\"alert alert-info\" role=\"alert\" id="+count+">";
-
         str += msg;
         str += "<button type=\"button\" class=\"btn btn-primary\" id="+count+"><strong>X</strong></button></div>";
 
         $(".top").append(str);
         $("#"+count).delay(3000).fadeOut(1600);
+
         document.getElementById(count).addEventListener('click', function(e) {
             e.preventDefault();
             this.style.display = 'none';
             }, false);
+
         count += 1;
     }
 }
@@ -52,6 +53,9 @@ $(function() {
            btn.text("Stop Messages");
            document.getElementById("msgButton").className = "btn btn-danger";
            loopHandle = setTimeout(loop, 500);
+           $(".top").append(str);
+           $("#"+count).delay(3000).fadeOut(1600);
+
        } else {
            document.getElementById("msgButton").className = "btn btn-success";
            btn.text("Start Messages");
