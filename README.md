@@ -6,6 +6,7 @@
 * Messages will stack if they come in before the previous one(s) dismiss
 * Messages can be automatically closed via the X button
 * General layout improvements (using Bootstrap CSS)
+* Allow the user to change the color the messages being displayed!
 
 # Code observations
 I really did enjoy this exercise and the creative freedom I was given. I added the Bootstrap CSS framework to help a bit with some of the UI components and layout. I am a bit of a novice when it comes to Jquery as I mostly use it only for personal projects, but I find it easy to do what I need. Much of my web development experience is with the ExtJS which is a complete UI framework which uses mostly javascript. While some cringe in the fear of having to constantly learn front end frameworks, I am very excited.
