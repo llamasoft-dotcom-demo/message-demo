@@ -5,3 +5,56 @@
     width: 99%;
     height: 24px;
 }
+
+.message-container {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+}
+
+.message {
+    position: relative;
+    color: #FFFFFF;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 5px 5px 0;
+}
+
+.media-heading {
+    font-weight: bold;
+}
+
+.message-icon {
+    font-size: 1.5em;
+}
+
+.close-message-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    opacity: .5;
+}
+
+.close-message-button:hover {
+    opacity: 1;
+}
+
+.message-title {
+    margin-left: 25px;
+}
+
+.main-content {
+    margin-left: 25px;
+    max-width: 600px;
+}
+
+.color-square {
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    display: inline-block;
+}
