@@ -5,3 +5,9 @@
     width: 99%;
     height: 24px;
 }
+
+.alert
+{
+    background-color:grey;
+    color: black;
+}

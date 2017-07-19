@@ -1,13 +1,29 @@
 var loopHandle = null;
+var currentMessages = 0;
 
 // The messageSystem object is where you should do all of your work
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
 messageSystem = {
     showMessage: function(msg) {
-        alert(msg);
+        
+        $('#messageSpace').append('<div id="newAlert" class="alert alert-success alert-dismissible" role="alert">' +
+                msg +  
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+  
+            '</div>')
+            currentMessages++;
+        var child = $('#messageSpace').children().last();
+        child.delay(3000).fadeOut(500, 0, function()
+        {
+            child.alert('close');
+        });
     }
 }
+
+$(document).ready(function()
+{
+    setStopped();
+});
 
 
 
@@ -26,6 +42,22 @@ function showMsg() {
     
 }
 
+function setRunning()
+{
+    $('#messageStatus').text('Messages Running');
+    if($('#messageStatus').hasClass('label-danger'))
+        $('#messageStatus').removeClass('label-danger');
+    $('#messageStatus').addClass('label-success');
+}
+function setStopped()
+{
+    var messageStatus = $('#messageStatus');
+    messageStatus.text('Messages Stopped');
+    if(messageStatus.hasClass('label-success'))
+       messageStatus.addClass('label-success');
+    messageStatus.addClass('label-danger');
+}
+
 function loop() {
     showMsg();
     var rand = Math.round(Math.random() * (3000 - 500)) + 500;
@@ -39,9 +71,11 @@ $(function() {
       btnTxt = btn.text();
        if (btnTxt === 'Start Messages') {
            btn.text('Stop Messages');
+           setRunning();
            loopHandle = setTimeout(loop, 500);
        } else {
            btn.text('Start Messages');
+           setStopped();
            clearTimeout(loopHandle);
            loopHandle = null;
        }
