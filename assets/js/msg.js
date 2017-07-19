@@ -41,14 +41,17 @@ function showMsg() {
     messageSystem.showMessage(_.sample(quotes));
     
 }
-
+// Set status Indicator to running
 function setRunning()
 {
     $('#messageStatus').text('Messages Running');
     if($('#messageStatus').hasClass('label-danger'))
         $('#messageStatus').removeClass('label-danger');
     $('#messageStatus').addClass('label-success');
+    $('#navigator').css('background-color','green');
+    $('#brandtitle').css('color','black');
 }
+// Set Indicator to stopped.
 function setStopped()
 {
     var messageStatus = $('#messageStatus');
@@ -56,6 +59,8 @@ function setStopped()
     if(messageStatus.hasClass('label-success'))
        messageStatus.addClass('label-success');
     messageStatus.addClass('label-danger');
+    $('#navigator').css('background-color','#F8F8F8');
+    $('#brandtitle').css('color','#777');
 }
 
 function loop() {

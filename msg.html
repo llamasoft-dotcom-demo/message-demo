@@ -10,17 +10,16 @@
         <link href="assets/css/msg.css" rel="stylesheet">
         </head>
         <body>
-            <nav class="navbar navbar-default">
+            <nav id="navigator" class="navbar navbar-default">
                 <div class="container-fluid">
                     <a id="brandtitle" class="navbar-brand" href="#">LLamasoft Message Exercise</a>
-                    <button type="button" class="btn btn-default navbar-btn" id="msgButton">Start Messages</button>
                     <span id="messageStatus" class="label label-danger">Success</span>
+                    <button type="button" class="btn btn-default navbar-btn" id="msgButton">Start Messages</button>
+                    
                 </div>
             </nav>
             <div class="row">
-                
-                <div id="messageSpace" class="col-md-2">
-                      Messages:</div>  
+                <div id="messageSpace" class="col-md-2"></div>  
                 <div id="instructions" class="col-md-10">
                     <p>
                     Implement a messaging system to replace the random alert boxes that come up. The messaging system

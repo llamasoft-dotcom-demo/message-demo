@@ -5,9 +5,21 @@
     width: 99%;
     height: 24px;
 }
-
 .alert
 {
-    background-color:grey;
+    background-color:#c9c9c9;
     color: black;
+    border-width: 0;
+}
+
+#messageSpace
+{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 100;
+    margin: auto;
 }
