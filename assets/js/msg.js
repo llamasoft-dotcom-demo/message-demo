@@ -1,23 +1,62 @@
 var loopHandle = null;
-var currentMessages = 0;
+var recentMessages = [];
 
+
+function RecentMessage(msg, timeAdded) {
+     this.Message = msg;
+     this.TimeAdded = timeAdded;
+}
 // The messageSystem object is where you should do all of your work
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
 messageSystem = {
     showMessage: function(msg) {
-        
+        updateRecent(msg);
         $('#messageSpace').append('<div id="newAlert" class="alert alert-success alert-dismissible" role="alert">' +
                 msg +  
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+  
             '</div>')
-            currentMessages++;
         var child = $('#messageSpace').children().last();
         child.delay(3000).fadeOut(500, 0, function()
         {
             child.alert('close');
         });
     }
+}
+//update recent messages panel
+function updateRecent(msg)
+{
+    var currentTimeMs = Date.now();
+    var currentTime = new Date(currentTimeMs);
+    var timeString = padLeft(currentTime.getHours(),'0',2) + ':' + padLeft(currentTime.getMinutes(),'0',2) + ':' + padLeft(currentTime.getSeconds(),'0',2);
+    var message = new RecentMessage(msg,timeString);
+    if(recentMessages.length == 10)
+    {
+        recentMessages.shift();
+    }
+    recentMessages.push(message);
+    $('#messagesList').html('');
+    for(var i=0; i < recentMessages.length; i++)
+    {
+        $('#messagesList').append('<li id="recentMessage' + i +'" class="list-group-item">' + recentMessages[i].TimeAdded + ' - ' + recentMessages[i].Message + '</li>');
+    }
+}
+//Simple function to pad value to the defined length with the given padding character
+function padLeft(value, padding, length)
+{
+    var padded = value.toString();
+    while(padded.length < length)
+    {
+        padded = padding + padded;
+    }
+    
+    return padded.slice(-length);
+}
+//clear recent messages panel
+function clearRecent()
+{
+    recentMessages =[];
+    $('#messagesList').html('');
 }
 
 $(document).ready(function()
@@ -68,7 +107,6 @@ function loop() {
     var rand = Math.round(Math.random() * (3000 - 500)) + 500;
     loopHandle = setTimeout(loop, rand);
 }
-
 
 $(function() {
    $('#msgButton').click(function() {

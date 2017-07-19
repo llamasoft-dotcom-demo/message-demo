@@ -15,11 +15,17 @@
 #messageSpace
 {
     position: absolute;
-    top:0;
+    top:1px;
     bottom: 0;
     left: 0;
     right: 0;
 
     z-index: 100;
     margin: auto;
+}
+
+#messagesList li
+{
+    padding: 3px 10px
+
 }
