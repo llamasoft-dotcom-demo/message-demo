@@ -1,7 +1,49 @@
+.button-row {
+    font-size: 1.5em;
+    margin-top: 15px;
+}
+
+.button-row a {
+    font-size: 0.5em;
+    margin-left: 10px;
+}
+
 .footer {
-    position: absolute;
     bottom: 0;
+    font-size: 12px;
+    height: 24px;
+    position: absolute;
     text-align: center;
     width: 99%;
-    height: 24px;
+}
+
+.header {
+    background: #004a97;
+    color: #ffffff;
+    font-family: "Lucida Bright", "Times New Roman", serif;
+    font-size: 36px;
+    font-weight: bold;
+    height: 48px;
+    padding: 1em;
+    text-align: center;
+    width: 100%;
+}
+
+.rounded-rect {
+    background: #b8e5b6;
+    border: 2px solid #a0ce4e;
+    border-radius: 20px;
+    margin: 2em;
+    padding: 1em;
+}
+
+body {
+    color: #222222;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+input[type=checkbox] {
+    margin: 15px;
+    transform: scale(2);
 }
