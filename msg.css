@@ -1,7 +1,52 @@
+.messageBox {
+	position: fixed;
+	width: 400px;
+	margin-right: 25px;
+	margin-left: 25px;
+	top: 0px;
+	right: 0px;		
+}
+
+.message {
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid black;
+	background-color: #E1E1E1;
+}
+
+.message.dark {
+	background-color: #E1E1E1;
+}
+
+.message.light {
+	background-color: #EEEEEE;
+}
+
+.deleteRow {
+	width: 31px;
+}
+
+.messageRow {
+	color: #333333;	
+	font-family: Arial; 
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 15.4px;
+}
+
+.messageRow.Error {
+	color: #FF0000;	
+}
+
 .footer {
     position: absolute;
     bottom: 0;
     text-align: center;
     width: 99%;
     height: 24px;
+}
+
+p, ul {
+	width: calc(100% - 800px);
 }
