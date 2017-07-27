@@ -5,7 +5,19 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
         <script src="msg.js"></script>
-        <link href="msg.css" rel="stylesheet">
+        <link href="msg.css" rel="stylesheet">		
+		<script type="text/template" class="messageTemplate">			
+			<table id="<%- data.id %>" class="message <%- data.color %>">
+			  <tr>
+				<td class="deleteRow">
+					<button type="button" class="deleteButton">X</button>
+				</td>
+				<td class="messageRow <%- data.level %>">
+					<%- data.quotes %>
+				</td>
+			  </tr>
+			</table>			
+		</script>
         </head>
         <body>
             <h1>LLamasoft Message Exercise
@@ -36,8 +48,12 @@
             <button type="button" id="msgButton">Start Messages</button>
             </div>
             
+			<div class="messageBox">
+			
+			</div>
+			
             <div class="footer">
                 <span>&copy; LLamasoft 2016</span>
             </div>
         </body>
-    </html>
+</html>
