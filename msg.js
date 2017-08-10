@@ -5,7 +5,13 @@ var loopHandle = null;
 // is appropriate
 messageSystem = {
     showMessage: function(msg) {
-        alert(msg);
+        // code to get the messages on the top of the window and pass the next messages below the previous one 
+          let msghtml = this.messageAlert(msg);
+          $('#msgalert').append(msghtml);
+    },
+    messageAlert: function(msg){
+        let msgtag = $('<div/>',{class: 'alert alert-success alert-dismissable'}).append(msg)
+        return msgtag;
     }
 }
 
