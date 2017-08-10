@@ -10,11 +10,10 @@ messageSystem = {
           $('#msgalert').append(msghtml);
     },
     messageAlert: function(msg){
-        let msgtag = $('<div/>',{class: 'alert alert-success alert-dismissable'}).append(msg)
+        let msgtag = $('<div/>',{class: 'alert alert-success alert-dismissable'}).append($('<a/>',{href:'#', class:'close','data-dismiss':'alert', 'aria-label':'close',text:'x'})).append(msg)
         return msgtag;
     }
 }
-
 
 
 function showMsg() {
