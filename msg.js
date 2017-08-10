@@ -8,7 +8,14 @@ messageSystem = {
         // code to get the messages on the top of the window and pass the next messages below the previous one 
           let msghtml = this.messageAlert(msg);
           $('#msgalert').append(msghtml);
+        //   adding code for the msg fade delay by 3sec
+        setTimeout(function() {
+           msghtml.fadeOut(3000, function() {
+                $(this).remove();
+            })
+        },0);
     },
+        // updated the close function
     messageAlert: function(msg){
         let msgtag = $('<div/>',{class: 'alert alert-success alert-dismissable'}).append($('<a/>',{href:'#', class:'close','data-dismiss':'alert', 'aria-label':'close',text:'x'})).append(msg)
         return msgtag;
