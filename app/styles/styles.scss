@@ -1,0 +1,148 @@
+/*
+    style files should be seperated into seperate files for each component, or a a group of components.
+    But for this excercise I added all styles to 1 file since it was a small project and I didn't have much time to toggle between files.
+*/
+
+html, body {
+    position: relative;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.mainWrapper {
+    min-height: 100%;
+    height: 100%;
+    margin: 0;
+    position: relative;
+}
+
+.headerWrapper {
+    background-color: #797979;
+    width: 100%;
+    height: 100%;
+    padding: 2vw;
+    color: white;
+    text-align: center;
+}
+
+.blockStyle {
+    padding-top: 2em;
+}
+
+.logo {
+    color: white;
+    font-weight: 500;
+    font-size: 2em;
+}
+
+.slogan {
+    color: #CDCFE6;
+    position: relative;
+    font-style: italic;
+}
+
+.headerWrapper h1 {
+    margin: 0;
+}
+
+.contentWrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0 10vw;
+}
+
+.formStyles {
+    width: 50%;
+    max-width: 350px;
+    margin: 1em auto;
+}
+
+.textOutput {
+    text-align: center;
+    padding: 1em 0;
+}
+
+.devTools {
+    padding: 2vw 0;
+}
+
+.alertBox {
+    margin: 3vw 0;
+}
+
+.descText {
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+.msgButton {
+    margin: 1vw auto;
+    display: block;
+}
+
+.footer {
+    background: #315139;
+    text-align: center;
+    width: 100%;
+    height: 90px;
+    overflow: hidden;
+
+    /* IE10+ */
+    background-image: -ms-radial-gradient(center, ellipse farthest-corner, #3C8A61 0%, #315139 100%);
+
+    /* Mozilla Firefox */
+    background-image: -moz-radial-gradient(center, ellipse farthest-corner, #3C8A61 0%, #315139 100%);
+
+    /* Opera */
+    background-image: -o-radial-gradient(center, ellipse farthest-corner, #3C8A61 0%, #315139 100%);
+
+    /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(radial, center center, 0, center center, 286, color-stop(0, #3C8A61), color-stop(100, #315139));
+
+    /* Webkit (Chrome 11+) */
+    background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #3C8A61 0%, #315139 100%);
+
+
+    .footerLinks {
+        padding-top: 1vw;
+        width: 50%;
+        color: white;
+        margin: 0 auto;
+        display: inline-block;
+    }
+
+    .copyRight {
+        color: white;
+        padding: 1vw;
+        display: block;
+    }
+
+    a {
+        color: #EBEBEB;
+        padding: 5px 10px 5px 0;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+
+/********************** Media Queries for responsiveness **********************/
+
+@media only screen and (max-width: 1024px) {
+    .headerWrapper {
+        font-size: 1em;
+    }
+    .formStyles {
+        width: 100%;
+        max-width: none;
+    }
+    .footer {
+        .footerLinks {
+            width: 100%;
+        }
+    }
+}
