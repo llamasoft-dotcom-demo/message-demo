@@ -40,9 +40,11 @@
                 btnTxt = btn.text();
             if (btnTxt === 'Start Messages') {
                 btn.text('Stop Messages');
+                btn.attr('aria-busy', 'true');
                 loopHandle = setTimeout(loop, 500);
             } else {
                 btn.text('Start Messages');
+                btn.attr('aria-busy', 'false');
                 clearTimeout(loopHandle);
                 loopHandle = null;
             }

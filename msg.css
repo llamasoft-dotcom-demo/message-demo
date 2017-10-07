@@ -5,3 +5,71 @@
     width: 99%;
     height: 24px;
 }
+
+body {
+    background-color: #EFEFEF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1.page-header {
+    text-align: center;
+    color: #007;
+}
+
+div.body-content {
+    margin: 0 5%;
+    padding: 1.5em;
+    border: 1px solid gray;
+    background: white;
+}
+
+a.btn,
+div.btn,
+button.btn {
+    height: 2em;
+    width: 10em;
+    background-color: #DEDEDE;
+    background: linear-gradient(#EDEDED, #CACACA);
+    background: -webkit-gradient(#EDEDED, #CACACA);
+    border: 1px solid gray;
+    border-radius: .25em;
+}
+
+a.btn:hover,
+div.btn:hover,
+button.btn:hover {
+    background-color: #EFEFEF;
+    background: linear-gradient(#FEFEFE, #DBDBDB);
+    background: -webkit-gradient(#FEFEFE, #DBDBDB);
+    cursor: pointer;
+}
+
+a.btn[aria-busy="false"],
+div.btn[aria-busy="false"],
+button.btn[aria-busy="false"] {
+    background-color: #2D2;
+    background: linear-gradient(#4E4, #1B1);
+    color: #FFFEFF;
+}
+
+a.btn[aria-busy="false"]:hover,
+div.btn[aria-busy="false"]:hover,
+button.btn[aria-busy="false"]:hover {
+    background-color: #4E4;
+    background: linear-gradient(#5F5, #3D3);
+}
+
+a.btn[aria-busy="true"],
+div.btn[aria-busy="true"],
+button.btn[aria-busy="true"] {
+    background-color: #F33;
+    background: linear-gradient(#F33, #B33);
+    color: #FEFEFE;
+}
+
+a.btn[aria-busy="true"]:hover,
+div.btn[aria-busy="true"]:hover,
+button.btn[aria-busy="true"]:hover {
+    background-color: #F55;
+    background: linear-gradient(#F55, #C45);
+}
