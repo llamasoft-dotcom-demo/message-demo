@@ -1,12 +1,33 @@
-(function () {
+(function ($, toastr) {
     var loopHandle = null;
+
+    // Configure toastr. Source: https://codeseven.github.io/toastr/demo.html
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "2500",
+        "extendedTimeOut": "250",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+
+    
 
     // The messageSystem object is where you should do all of your work
     // Use any combination of javascript, HTML and CSS that you feeling
     // is appropriate
     messageSystem = {
         showMessage: function (msg) {
-            alert(msg);
+            toastr["success"](msg);
         }
     }
 
@@ -50,4 +71,4 @@
             }
         });
     });
-})();
+})(window.jQuery, toastr);
