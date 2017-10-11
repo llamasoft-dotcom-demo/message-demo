@@ -5,10 +5,3 @@
     width: 99%;
     height: 24px;
 }
-
-.test {
-    position : absolute;
-    z-index: 10;
-    top: 80px;
-    right: 50%;
-}
