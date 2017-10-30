@@ -5,3 +5,24 @@
     width: 99%;
     height: 24px;
 }
+
+#msgButton {
+	background-color: #008CBA;
+	font-size: 12px;
+	border: none;
+    color: white;
+    padding: 10px 24px;
+    margin: 12px;
+}
+
+h1 {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 24px;
+}
+
+#instructions {
+	background-color: #D5DBDB;
+	padding: 10px 24px;
+	margin: 12px;
+}
