@@ -1,13 +1,17 @@
 var loopHandle = null;
 
+//methods to create new dialog each time
+//method to destroy dialog
+
 // The messageSystem object is where you should do all of your work
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
 messageSystem = {
     showMessage: function(msg) {
-        alert(msg);
-    }
+              toastr.info(msg);
+  }
 }
+
 
 
 
@@ -39,11 +43,29 @@ $(function() {
       btnTxt = btn.text();
        if (btnTxt === 'Start Messages') {
            btn.text('Stop Messages');
+           $('#mainTitle').text('Messages Are Running');
            loopHandle = setTimeout(loop, 500);
        } else {
            btn.text('Start Messages');
+           $('#mainTitle').text('LLamasoft Message Exercise');
            clearTimeout(loopHandle);
            loopHandle = null;
        }
    } );
+
+   toastr.options = {
+  "closeButton": true,
+  "newestOnTop": false,
+  "progressBar": false,
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "3000",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
 });
