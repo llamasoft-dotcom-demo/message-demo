@@ -3,9 +3,21 @@ var loopHandle = null;
 // The messageSystem object is where you should do all of your work
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
+var msgIndex = 0;
 messageSystem = {
     showMessage: function(msg) {
-        alert(msg);
+        msgIndex++;
+        // alert(msg);
+        console.log(msg);
+        // add message to the message list at the top of the page
+        msg_id = "msg"+msgIndex;
+        var message = '<div class="msg" id = "' + msg_id + '"> \
+                        <span class="closebtn" onClick="this.parentElement.remove();" >&times;</span>';
+        message += msg;
+        message += '</div>';
+        $("#messages").append(message);
+        // after 2 seconds, fade out for 1 second, then remove the element
+        $('#'+msg_id).delay(2000).fadeOut(1000, function() { $(this).remove(); });
     }
 }
 
