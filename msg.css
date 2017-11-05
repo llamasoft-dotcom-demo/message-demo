@@ -5,3 +5,34 @@
     width: 99%;
     height: 24px;
 }
+
+.msg {
+    width: 50%;
+    padding: 5px;
+    color: #00529B;
+    background-color: #BDE5F8;
+    border: 1px solid;
+    margin: 5px 0px;
+    padding:15px 10px 15px 10px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+
+.closebtn {
+    margin-right: 15px;
+    color: white;
+    font-weight: bold;
+    float: left;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#loading{
+    margin-left: 10px;
+}
+
+.closebtn:hover {
+    color: black;
+}

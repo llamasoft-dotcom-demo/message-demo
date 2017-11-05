@@ -3,9 +3,21 @@ var loopHandle = null;
 // The messageSystem object is where you should do all of your work
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
+var msgIndex = 0;
 messageSystem = {
     showMessage: function(msg) {
-        alert(msg);
+        msgIndex++;
+        // alert(msg);
+        console.log(msg);
+        // add message to the message list at the top of the page
+        msg_id = "msg"+msgIndex;
+        var message = '<div class="msg" id = "' + msg_id + '"> \
+                        <span class="closebtn" onClick="this.parentElement.remove();" >&times;</span>';
+        message += msg;
+        message += '</div>';
+        $("#messages").append(message);
+        // after 2 seconds, fade out for 1 second, then remove the element
+        $('#'+msg_id).delay(2000).fadeOut(1000, function() { $(this).remove(); });
     }
 }
 
@@ -32,16 +44,29 @@ function loop() {
     loopHandle = setTimeout(loop, rand);
 }
 
-
+var displayingMessages = false;
+var interval;
 $(function() {
    $('#msgButton').click(function() {
-       var btn = $(this),
-      btnTxt = btn.text();
-       if (btnTxt === 'Start Messages') {
+       var btn = $(this);
+
+       if (!displayingMessages) { // clicked to start
+          displayingMessages = true;
            btn.text('Stop Messages');
+          var loading = $('#loading');
+          var i  = 0;
+          loading.text("Displaying Messages");
+          interval = setInterval(function() {
+              i = ++i % 4;
+              $("#loading").text("Displaying Messages"+Array(i+1).join("."));
+          }, 500);
+
            loopHandle = setTimeout(loop, 500);
-       } else {
+       } else { // clicked to stop
+        displayingMessages = false;
            btn.text('Start Messages');
+           $("#loading").text("");
+           clearInterval(interval);
            clearTimeout(loopHandle);
            loopHandle = null;
        }
