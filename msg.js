@@ -44,16 +44,29 @@ function loop() {
     loopHandle = setTimeout(loop, rand);
 }
 
-
+var displayingMessages = false;
+var interval;
 $(function() {
    $('#msgButton').click(function() {
-       var btn = $(this),
-      btnTxt = btn.text();
-       if (btnTxt === 'Start Messages') {
+       var btn = $(this);
+
+       if (!displayingMessages) { // clicked to start
+          displayingMessages = true;
            btn.text('Stop Messages');
+          var loading = $('#loading');
+          var i  = 0;
+          loading.text("Displaying Messages");
+          interval = setInterval(function() {
+              i = ++i % 4;
+              $("#loading").text("Displaying Messages"+Array(i+1).join("."));
+          }, 500);
+
            loopHandle = setTimeout(loop, 500);
-       } else {
+       } else { // clicked to stop
+        displayingMessages = false;
            btn.text('Start Messages');
+           $("#loading").text("");
+           clearInterval(interval);
            clearTimeout(loopHandle);
            loopHandle = null;
        }
