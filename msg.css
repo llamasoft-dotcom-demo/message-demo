@@ -5,3 +5,39 @@
     width: 99%;
     height: 24px;
 }
+
+#msgContainer {
+    width: 480px;
+    height: auto;
+    z-index: 1000;
+    top: 0px;
+    left: 50%;
+    margin-left: -240px;
+    position: fixed;
+}
+
+.msgContent {
+    background-color: #F0F0F0;
+    border: 1px solid #000000;
+    width: 480px;
+    text-align: center;
+    margin-bottom: 5px;
+
+}
+
+.msgContent p {
+    padding: 8px 20px 15px 8px;
+}
+
+.dismissMsgBtn {
+    background-color: #CCCCCC;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.dismissMsgBtn:hover {
+    background-color: #B8B8B8;
+}

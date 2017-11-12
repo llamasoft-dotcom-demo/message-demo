@@ -4,9 +4,20 @@ var loopHandle = null;
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
 messageSystem = {
+
     showMessage: function(msg) {
-        alert(msg);
-    }
+        var id = document.getElementsByClassName("msgContent").length;  // create an unique ID for each msgContent so we can easily hide/fade them
+        var newMsg = document.createElement("div");
+        newMsg.id = "msgContent_" + id;
+        newMsg.className = "msgContent";
+        newMsg.innerHTML = "<p>" + msg + "</p><button class='dismissMsgBtn' onClick='messageSystem.dismissMsg(" + id + ")'>Dismiss</button>";
+        $('#msgContainer').append(newMsg);
+        $('#msgContent_' + id).delay(2300).fadeOut(700);  // create a delay before fading so the user can read the text before its too transparent
+    },
+
+    dismissMsg: function(msgId) {
+      $('#msgContent_' + msgId).hide();
+    },
 }
 
 
@@ -35,13 +46,15 @@ function loop() {
 
 $(function() {
    $('#msgButton').click(function() {
-       var btn = $(this),
+      var btn = $(this),
       btnTxt = btn.text();
        if (btnTxt === 'Start Messages') {
            btn.text('Stop Messages');
+           $("#msgIndicator").text('Messages Running!');
            loopHandle = setTimeout(loop, 500);
        } else {
            btn.text('Start Messages');
+           $("#msgIndicator").text('Messages Paused!');
            clearTimeout(loopHandle);
            loopHandle = null;
        }
